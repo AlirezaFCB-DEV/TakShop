@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @theme {
   --color-bg-dark-color : #1f1f1f;
   --color-bg-light-color : #ededed;
@@ -31,6 +30,16 @@
 
 @theme inline {
   --font-yekan-bakh : var(--yekan-bakh);
+}
+
+@layer components {
+  .icon-button {
+    @apply text-4xl text-button-default hover:text-button-hover selection:bg-button-selected cursor-pointer transition-colors
+  }
+
+  .header-menu_item {
+    @apply hover:text-main-700 transition-colors
+  }
 }
 
 @layer utilities {
