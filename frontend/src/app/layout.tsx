@@ -45,7 +45,7 @@ export default function RootLayout({
       className={`${YekanBakh.variable} h-full antialiased`}
       dir="rtl"
     >
-      <body className={`${YekanBakh.className}`}>{children}</body>
+      <body className={`${YekanBakh.className} relative`}>{children}</body>
     </html>
   );
 }

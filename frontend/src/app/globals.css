@@ -84,29 +84,28 @@
   }
 
   .dropdown-category_item {
-    @apply flex flex-row-reverse gap-2 items-center text-xl hover:text-main-700 cursor-pointer transition-colors;
+    @apply flex flex-1 px-4 hover:bg-black/4 gap-2 items-center text-xl hover:text-main-500 cursor-pointer transition-colors;
   }
 
   .category-title_icon {
-    @apply text-2xl
+    @apply text-2xl;
   }
   .title-categories_container {
-    @apply flex flex-col gap-2
+    @apply flex flex-col gap-2;
   }
-  
+
   .title-category_heading {
-    @apply pr-3 border-r-3 desktop-heading3 text-main-500
+    @apply pr-3 border-r-3 desktop-heading3 text-main-500;
   }
 
   .title-category_list {
-    @apply flex flex-col gap-6
+    @apply flex flex-col gap-6;
   }
 
   .category-list_item {
-    @apply hover:text-main-700 transition-colors
+    @apply hover:text-main-700 transition-colors;
   }
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
