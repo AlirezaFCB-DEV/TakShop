@@ -1,5 +1,6 @@
 "use client";
 
+import BackShadow from "@/components/BackShadow";
 import PrimaryButton from "@/components/PrimaryButton";
 import Link from "next/link";
 import { useState } from "react";
@@ -13,7 +14,8 @@ import { LiaLaptopSolid } from "react-icons/lia";
 import { MdDarkMode } from "react-icons/md";
 
 const Home = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActiveDropDown, setIsActiveDropDown] = useState(false);
+  const [isActiveModal, setIsActiveModal] = useState(false);
 
   return (
     <>
@@ -36,13 +38,13 @@ const Home = () => {
             </li>
             <li
               className="header-menu_item gap-1 cursor-pointer group "
-              onMouseEnter={() => setIsActive(true)}
-              onMouseLeave={() => setIsActive(false)}
+              onMouseEnter={() => setIsActiveDropDown(true)}
+              onMouseLeave={() => setIsActiveDropDown(false)}
             >
               <span>دسته بندی کالاها</span>
               <IoIosArrowUp className="group-hover:-rotate-180 transition-transform" />
               <section
-                className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-27 transition-all ${isActive ? "visible opacity-100 -translate-y-4" : " invisible translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden`}
+                className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-27 transition-all ${isActiveDropDown ? "visible opacity-100 -translate-y-4" : " invisible translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden`}
               >
                 <section className="border-l-3 border-transparent [border-image:linear-gradient(to_bottom,#fff,#831fc1,#fff)_1] flex-1">
                   <ul className="text-black flex flex-col h-full">
@@ -249,16 +251,13 @@ const Home = () => {
           <PrimaryButton className="rounded-full" variant="icon">
             <MdDarkMode />
           </PrimaryButton>
-          <PrimaryButton>ثبت نام / ورود</PrimaryButton>
+          <PrimaryButton onClick={() =>  setIsActiveModal(true)}>ثبت نام / ورود</PrimaryButton>
           <button className="icon-button">
             <BsCart3 />
           </button>
         </section>
       </nav>
-
-      <section
-        className={`absolute bg-black transition-all ${isActive ? "visible opacity-40" : "invisible opacity-0"} w-full h-dvh top-0 z-0`}
-      ></section>
+      <BackShadow isActiveState={(isActiveDropDown || isActiveModal)} />
     </>
   );
 };
