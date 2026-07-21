@@ -3,20 +3,24 @@
 import BackShadow from "@/components/BackShadow";
 import PrimaryButton from "@/components/PrimaryButton";
 import TakShopLogo from "@/components/TakShopLogo";
+import { useModal } from "@/context/LoginModalContext";
 import Link from "next/link";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { AiOutlineCamera } from "react-icons/ai";
 import { BsCart3, BsSmartwatch } from "react-icons/bs";
 import { CiHeadphones, CiHeart, CiMobile3, CiSearch } from "react-icons/ci";
-import { FaShopify } from "react-icons/fa";
-import { IoIosArrowUp, IoIosGitNetwork } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp, IoIosGitNetwork } from "react-icons/io";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { LiaLaptopSolid } from "react-icons/lia";
 import { MdDarkMode } from "react-icons/md";
 
 const Home = () => {
   const [isActiveDropDown, setIsActiveDropDown] = useState(false);
-  const [isActiveModal, setIsActiveModal] = useState(false);
+  
+  const { isModalOpen, openModal, closeModal } = useModal();
+
+  const inp_id = useId();
+  const checkbox_id = useId();
 
   return (
     <>
@@ -32,7 +36,7 @@ const Home = () => {
         <section>
           <ul className="flex gap-10 text-lg h-full z-20">
             <li className="header-menu_item">
-              <Link href={"#"}>
+              <Link href={"/"}>
                 <span>صفحه اصلی</span>
               </Link>
             </li>
@@ -251,16 +255,59 @@ const Home = () => {
           <PrimaryButton className="rounded-full" variant="icon">
             <MdDarkMode />
           </PrimaryButton>
-          <PrimaryButton onClick={() =>  setIsActiveModal(true)}>ثبت نام / ورود</PrimaryButton>
+          <PrimaryButton onClick={openModal}>
+            ثبت نام / ورود
+          </PrimaryButton>
           <button className="icon-button">
             <BsCart3 />
           </button>
         </section>
       </nav>
-      <section className="absolute w-full h-dvh top-0 flex items-center justify-center">
-        
+      <section className={`absolute w-full h-dvh top-0 flex items-center justify-center z-10 transition-all ${isModalOpen ? "visible opacity-100" : "invisible opacity-0"}`}>
+        <form className="bg-white border-2 border-main-500 rounded-2xl w-1/3 flex flex-col gap-4 py-8 px-12" onClick={(e) => e.stopPropagation()}>
+          <h2 className="flex justify-center ">
+            <TakShopLogo />
+          </h2>
+          <h3 className="desktop-heading2 flex justify-center">
+            ورود / ثبت نام
+          </h3>
+          <section className="text-lg">
+            <p>سلام به تک شاپ خوش اومدید!</p>
+            <p>برای ورود لطفا شماره موبایل خود را وارد کنید</p>
+          </section>
+
+          <section className="p-1 bg-[#f9f9f9] shadow-md rounded-lg flex items-center gap-2 overflow-hidden">
+            <input
+              type="tel"
+              className="flex-5 h-full outline-none text-2xl text-main-500"
+              placeholder="9xx xxx xxxx"
+              maxLength={10}
+              id={inp_id}
+            />
+            <label htmlFor={inp_id}>
+              <span className="flex items-center text-main-300 text-2xl py-2.5 px-2 flex-1 border-r-2">
+                98+
+              </span>
+            </label>
+          </section>
+          <section className="flex items-center gap-2 text-lg ">
+            <input
+              type="checkbox"
+              name="rememberMe"
+              id={checkbox_id}
+              className="accent-main-500 cursor-pointer w-6 h-6"
+            />
+            <label htmlFor={checkbox_id} className="flex gap-1 ">
+              با
+              <Link href={"#"} className="transition-colors text-main-500 active:text-main-900 hover:text-main-700"> قوانین و مقررات</Link>
+              این سایت موافقت میکنم
+            </label>
+          </section>
+
+          <PrimaryButton type="submit">ورود</PrimaryButton>
+        </form>
       </section>
-      <BackShadow isActiveState={(isActiveDropDown || isActiveModal)} />
+      <BackShadow isActiveState={isActiveDropDown || isModalOpen} onClick={closeModal}/>
     </>
   );
 };
