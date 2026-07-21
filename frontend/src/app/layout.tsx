@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { useModal , ModalProvider } from "@/context/LoginModalContext";
 import localFont from "next/font/local"
 import "./globals.css";
+import LayoutContent from "@/components/LayoutContent";
 
 const YekanBakh = localFont({
   src: [
@@ -39,13 +41,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html
       lang="fa"
       className={`${YekanBakh.variable} h-full antialiased`}
       dir="rtl"
     >
-      <body className={`${YekanBakh.className} relative`}>{children}</body>
+      <ModalProvider>
+        <LayoutContent fontClassName={YekanBakh.className}>{children}</LayoutContent>
+      </ModalProvider>
     </html>
   );
 }
