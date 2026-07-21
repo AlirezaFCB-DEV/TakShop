@@ -2,6 +2,7 @@
 
 import BackShadow from "@/components/BackShadow";
 import PrimaryButton from "@/components/PrimaryButton";
+import TakShopLogo from "@/components/TakShopLogo";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineCamera } from "react-icons/ai";
@@ -25,8 +26,7 @@ const Home = () => {
             href={"/"}
             className="desktop-main-title flex gap-4 text-main-500"
           >
-            <FaShopify />
-            <h1>تک شاپ</h1>
+            <TakShopLogo />
           </Link>
         </section>
         <section>
@@ -257,6 +257,9 @@ const Home = () => {
           </button>
         </section>
       </nav>
+      <section className="absolute w-full h-dvh top-0 flex items-center justify-center">
+        
+      </section>
       <BackShadow isActiveState={(isActiveDropDown || isActiveModal)} />
     </>
   );

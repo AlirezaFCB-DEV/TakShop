@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-dark-color: #1f1f1f;
-  --color-bg-light-color: #ededed;
+  --color-dark-color: #1f1f1f;
+  --color-light-color: #ededed;
   --color-button-default: #831fc1;
   --color-button-hover: #761cae;
   --color-button-selected: #69199a;
