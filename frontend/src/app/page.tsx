@@ -9,7 +9,7 @@ import { useId, useState } from "react";
 import { AiOutlineCamera } from "react-icons/ai";
 import { BsCart3, BsSmartwatch } from "react-icons/bs";
 import { CiHeadphones, CiHeart, CiMobile3, CiSearch } from "react-icons/ci";
-import { IoIosArrowDown, IoIosArrowUp, IoIosGitNetwork } from "react-icons/io";
+import { IoIosArrowUp, IoIosGitNetwork } from "react-icons/io";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { LiaLaptopSolid } from "react-icons/lia";
 import { MdDarkMode } from "react-icons/md";
@@ -34,7 +34,7 @@ const Home = () => {
           </Link>
         </section>
         <section>
-          <ul className="flex gap-10 text-lg h-full z-20">
+          <ul className="flex gap-10 text-lg h-full z-10">
             <li className="header-menu_item">
               <Link href={"/"}>
                 <span>صفحه اصلی</span>
@@ -48,7 +48,7 @@ const Home = () => {
               <span>دسته بندی کالاها</span>
               <IoIosArrowUp className="group-hover:-rotate-180 transition-transform" />
               <section
-                className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-27 transition-all ${isActiveDropDown ? "visible opacity-100 -translate-y-4" : " invisible translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden`}
+                className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-full transition-all ${isActiveDropDown ? "visible opacity-100 -translate-y-4" : " invisible translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden`}
               >
                 <section className="border-l-3 border-transparent [border-image:linear-gradient(to_bottom,#fff,#831fc1,#fff)_1] flex-1">
                   <ul className="text-black flex flex-col h-full">
@@ -299,7 +299,7 @@ const Home = () => {
             />
             <label htmlFor={checkbox_id} className="flex gap-1 ">
               با
-              <Link href={"#"} className="transition-colors text-main-500 active:text-main-900 hover:text-main-700"> قوانین و مقررات</Link>
+              <Link href={"#"} className="transition-colors text-main-500 hover:text-main-700"> قوانین و مقررات</Link>
               این سایت موافقت میکنم
             </label>
           </section>
