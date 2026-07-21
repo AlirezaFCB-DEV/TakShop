@@ -80,7 +80,7 @@
   }
 
   .header-menu_item {
-    @apply hover:text-main-700 transition-colors flex items-center;
+    @apply hover:text-main-700 transition-colors flex items-center py-8;
   }
 
   .dropdown-category_item {
