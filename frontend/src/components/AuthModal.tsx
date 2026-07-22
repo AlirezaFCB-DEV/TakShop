@@ -6,10 +6,12 @@ import TakShopLogo from "./TakShopLogo";
 import { useId } from "react";
 
 interface AuthModalProps {
-  isActive : boolean
+  isActive: boolean;
+  setIsLogin: (isLogin: boolean) => void;
+  closeModalMethod: () => void;
 }
 
-const AuthModal = ({isActive} : AuthModalProps) => {
+const AuthModal = ({isActive , setIsLogin , closeModalMethod} : AuthModalProps) => {
   const inp_id = useId();
   const checkbox_id = useId();
 
@@ -20,6 +22,10 @@ const AuthModal = ({isActive} : AuthModalProps) => {
       <form
         className="bg-white border-2 border-main-500 rounded-2xl w-1/3 flex flex-col gap-4 py-8 px-12"
         onClick={(e) => e.stopPropagation()}
+        onSubmit={(e) => {
+          e.preventDefault();
+          closeModalMethod();
+        }}
       >
         <h2 className="flex justify-center ">
           <TakShopLogo />

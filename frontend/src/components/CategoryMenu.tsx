@@ -15,35 +15,35 @@ interface CategoryMenuProps {
 const CategoryMenu = ({isActive} : CategoryMenuProps) => {
   return (
     <section
-      className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-full transition-all ${isActive ? "visible opacity-100 -translate-y-4" : " invisible translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden`}
+      className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-full transition-all ${isActive ? "visible opacity-100 translate-y" : " invisible -translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden border-x-2 border-b-2 border-main-500`}
     >
       <section className="border-l-3 border-transparent [border-image:linear-gradient(to_bottom,#fff,#831fc1,#fff)_1] flex-1">
         <ul className="text-black flex flex-col h-full">
-          <li className="dropdown-category_item">
+          <li className="category-dropdown_item">
             <CiMobile3 className="category-title_icon" />
             <span>موبایل</span>
           </li>
-          <li className="dropdown-category_item">
+          <li className="category-dropdown_item">
             <LiaLaptopSolid className="category-title_icon" />
             <span>لپ‌تاپ</span>
           </li>
-          <li className="dropdown-category_item">
+          <li className="category-dropdown_item">
             <IoGameControllerOutline className="category-title_icon" />
             <span>لوازم جانبی لپ‌تاپ</span>
           </li>
-          <li className="dropdown-category_item">
+          <li className="category-dropdown_item">
             <CiHeadphones className="category-title_icon" />
             <span>هدست و هدفون</span>
           </li>
-          <li className="dropdown-category_item">
+          <li className="category-dropdown_item">
             <AiOutlineCamera className="category-title_icon" />
             <span>دوربین</span>
           </li>
-          <li className="dropdown-category_item">
+          <li className="category-dropdown_item">
             <IoIosGitNetwork className="category-title_icon" />
             <span>اینترنت</span>
           </li>
-          <li className="dropdown-category_item">
+          <li className="category-dropdown_item">
             <BsSmartwatch className="category-title_icon" />
             <span>ساعت هوشمند</span>
           </li>

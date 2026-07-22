@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import AuthModal from "@/components/AuthModal";
 import BackShadow from "@/components/BackShadow";
@@ -8,19 +8,27 @@ import TakShopLogo from "@/components/TakShopLogo";
 import { useModal } from "@/context/LoginModalContext";
 import Link from "next/link";
 import { useState } from "react";
-import { BsCart3 } from "react-icons/bs";
-import { CiSearch } from "react-icons/ci";
-import { IoIosArrowUp } from "react-icons/io";
-import { MdDarkMode } from "react-icons/md";
+import { AiOutlineUser } from "react-icons/ai";
+import { BsBoxSeam, BsCart3 } from "react-icons/bs";
+import { CiHeart, CiSearch } from "react-icons/ci";
+import { FaRegComment, FaRegHeart } from "react-icons/fa";
+import { FiSettings } from "react-icons/fi";
+import { IoIosArrowUp, IoIosNotificationsOutline } from "react-icons/io";
+import { LuGift } from "react-icons/lu";
+import { MdDarkMode, MdNotificationsNone } from "react-icons/md";
+import { RxExit } from "react-icons/rx";
 
 const NavBar = () => {
   const [isActiveCategoryMenu, setIsActiveCategoryMenu] = useState(false);
+  const [isActiveUserDropDown, setIsActiveUserDropDown] = useState(false);
+
+  const [isLogin, setIsLogin] = useState(false);
 
   const { isModalOpen, openModal, closeModal } = useModal();
 
   return (
     <>
-      <nav className="sticky top-0 bg-white flex items-center justify-around border-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
+      <nav className="sticky top-0 bg-white flex items-center justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
         <section>
           <Link
             href={"/"}
@@ -74,13 +82,87 @@ const NavBar = () => {
           <PrimaryButton className="rounded-full" variant="icon">
             <MdDarkMode />
           </PrimaryButton>
-          <PrimaryButton onClick={openModal}>ثبت نام / ورود</PrimaryButton>
-          <button className="icon-button">
+          {isLogin ? (
+            <>
+              <button
+                type="button"
+                className="icon-button"
+                onMouseEnter={() => setIsActiveUserDropDown(true)}
+                onMouseLeave={() => setIsActiveUserDropDown(false)}
+              >
+                <Link
+                  href={"#"}
+                  className="flex flex-row-reverse items-center group "
+                >
+                  <AiOutlineUser />
+                  <IoIosArrowUp className="text-[1.2rem] group-hover:rotate-180 transition-transform" />
+                </Link>
+
+                <section
+                  className={`${isActiveUserDropDown ? "visible opacity-100 translate-y" : "-translate-y-4 opacity-0 invisible"} bg-white desktop-heading2 w-1/5 absolute left-0 rounded-br-2xl rounded-l-2xl border-x-2 border-b-2 top-full cursor-default text-black transition-all`}
+                >
+                  <ul>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item">
+                        <AiOutlineUser className="user-dropdown_icon" />
+                        <span>حساب کاربری</span>
+                      </li>
+                    </Link>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item">
+                        <MdNotificationsNone className="user-dropdown_icon" />
+                        <span>پیغام ها</span>
+                      </li>
+                    </Link>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item">
+                        <FaRegHeart className="user-dropdown_icon" />
+                        <span>دلخواه شما</span>
+                      </li>
+                    </Link>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item">
+                        <FaRegComment className="scale-x-[-1] user-dropdown_icon" />
+                        <span>نظرات شما</span>
+                      </li>
+                    </Link>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item">
+                        <BsBoxSeam className="user-dropdown_icon" />
+                        <span>سفارش های شما</span>
+                      </li>
+                    </Link>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item">
+                        <LuGift className="user-dropdown_icon" />
+                        <span>کارت های هدیه</span>
+                      </li>
+                    </Link>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item">
+                        <FiSettings className="user-dropdown_icon" />
+                        <span>تنظیمات حساب کاربری</span>
+                      </li>
+                    </Link>
+                    <Link href={"/"} className="group">
+                      <li className="user-dropdown_item group-hover:text-red-600">
+                        <RxExit className="user-dropdown_icon" />
+                        <span>خروج از حساب کاربری</span>
+                      </li>
+                    </Link>
+                  </ul>
+                </section>
+              </button>
+            </>
+          ) : (
+            <PrimaryButton onClick={openModal}>ثبت نام / ورود</PrimaryButton>
+          )}
+          <Link href={"#"} className="icon-button">
             <BsCart3 />
-          </button>
+          </Link>
         </section>
       </nav>
-      <AuthModal isActive={isModalOpen} />
+      <AuthModal isActive={isModalOpen} setIsLogin={setIsLogin} closeModalMethod={closeModal} />
       <BackShadow
         isActiveState={isActiveCategoryMenu || isModalOpen}
         onClick={closeModal}

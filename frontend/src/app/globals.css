@@ -83,7 +83,7 @@
     @apply hover:text-main-700 transition-colors flex items-center py-8;
   }
 
-  .dropdown-category_item {
+  .category-dropdown_item {
     @apply flex flex-1 px-4 hover:bg-black/4 gap-2 items-center text-xl hover:text-main-500 cursor-pointer transition-colors;
   }
 
@@ -104,6 +104,14 @@
 
   .category-list_item {
     @apply hover:text-main-700 transition-colors;
+  }
+
+  .user-dropdown_item {
+    @apply flex gap-2 items-center py-4 px-6 group-hover:bg-black/4 group-hover:text-main-500 transition-colors
+  }
+
+  .user-dropdown_icon {
+    @apply text-3xl
   }
 }
 
