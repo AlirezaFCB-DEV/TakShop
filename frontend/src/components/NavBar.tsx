@@ -10,10 +10,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsBoxSeam, BsCart3 } from "react-icons/bs";
-import { CiHeart, CiSearch } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 import { FaRegComment, FaRegHeart } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
-import { IoIosArrowUp, IoIosNotificationsOutline } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
 import { MdDarkMode, MdNotificationsNone } from "react-icons/md";
 import { RxExit } from "react-icons/rx";
@@ -28,8 +28,8 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 bg-white flex items-center justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
-        <section>
+      <nav className="sticky top-0 bg-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
+        <section className="flex items-center">
           <Link
             href={"/"}
             className="desktop-main-title flex gap-4 text-main-500"
@@ -75,7 +75,7 @@ const NavBar = () => {
             </li>
           </ul>
         </section>
-        <section className="flex items-center gap-4 ">
+        <section className="flex gap-4">
           <button className="icon-button">
             <CiSearch />
           </button>
@@ -92,14 +92,14 @@ const NavBar = () => {
               >
                 <Link
                   href={"#"}
-                  className="flex flex-row-reverse items-center group "
+                  className="flex flex-row-reverse items-center "
                 >
                   <AiOutlineUser />
-                  <IoIosArrowUp className="text-[1.2rem] group-hover:rotate-180 transition-transform" />
+                  <IoIosArrowUp className={`text-[1.2rem] ${isActiveUserDropDown && "rotate-180"} transition-transform`} />
                 </Link>
 
                 <section
-                  className={`${isActiveUserDropDown ? "visible opacity-100 translate-y" : "-translate-y-4 opacity-0 invisible"} bg-white desktop-heading2 w-1/5 absolute left-0 rounded-br-2xl rounded-l-2xl border-x-2 border-b-2 top-full cursor-default text-black transition-all`}
+                  className={`${isActiveUserDropDown ? "visible opacity-100 translate-y" : "-translate-y-4 opacity-0 invisible"} bg-white desktop-heading2 w-1/5 absolute left-0 rounded-b-xl rounded-tl-lg border-main-500 border-x-2 border-b-2 top-full cursor-default text-black transition-all`}
                 >
                   <ul>
                     <Link href={"/"} className="group">
@@ -164,7 +164,7 @@ const NavBar = () => {
       </nav>
       <AuthModal isActive={isModalOpen} setIsLogin={setIsLogin} closeModalMethod={closeModal} />
       <BackShadow
-        isActiveState={isActiveCategoryMenu || isModalOpen}
+        isActiveState={isActiveCategoryMenu || isModalOpen || isActiveUserDropDown}
         onClick={closeModal}
       />
     </>

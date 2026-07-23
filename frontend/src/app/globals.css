@@ -76,7 +76,7 @@
 
 @layer components {
   .icon-button {
-    @apply text-4xl text-button-default hover:text-button-hover selection:bg-button-selected cursor-pointer transition-colors;
+    @apply text-4xl text-button-default hover:text-button-hover selection:bg-button-selected cursor-pointer transition-colors flex items-center;
   }
 
   .header-menu_item {
