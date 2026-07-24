@@ -107,11 +107,15 @@
   }
 
   .user-dropdown_item {
-    @apply flex gap-2 items-center py-4 px-6 group-hover:bg-black/4 group-hover:text-main-500 transition-colors
+    @apply flex gap-2 items-center py-4 px-6 group-hover:bg-black/4 group-hover:text-main-500 transition-colors;
   }
 
   .user-dropdown_icon {
-    @apply text-3xl
+    @apply text-3xl;
+  }
+
+  .otp-code_inp {
+    @apply bg-main-50 flex-1 w-full p-2 outline-none rounded-lg text-center text-main-500 font-bold border text-3xl;
   }
 }
 

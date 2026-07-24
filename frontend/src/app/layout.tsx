@@ -31,7 +31,7 @@ const YekanBakh = localFont({
 })
 
 export const metadata: Metadata = {
-  icons: "/fav_ico.ico",
+  icons: "favicon.ico",
   title: "TakShop",
   description: "A amazing shop for you .",
 };
