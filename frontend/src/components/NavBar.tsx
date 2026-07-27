@@ -2,7 +2,7 @@
 
 import AuthModal from "@/components/AuthModal";
 import BackShadow from "@/components/BackShadow";
-import CategoryMenu from "@/components/CategoryMenu";
+import CategoryMenu from "@/components/CategoryMenu/CategoryMenu";
 import PrimaryButton from "@/components/PrimaryButton";
 import TakShopLogo from "@/components/TakShopLogo";
 import { useModal } from "@/context/LoginModalContext";
@@ -28,7 +28,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 bg-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
+      <nav className="sticky top-0 text-black bg-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
         <section className="flex items-center">
           <Link
             href={"/"}
