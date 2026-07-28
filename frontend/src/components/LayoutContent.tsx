@@ -1,6 +1,6 @@
 "use client";
 
-import { useModal } from "@/context/LoginModalContext";
+import { useModal } from "@/contexts/LoginModalContext";
 import NavBar from "./NavBar";
 
 interface LayoutContentType {
@@ -18,7 +18,7 @@ const LayoutContent = ({ children, fontClassName }: LayoutContentType) => {
   };
 
   return (
-    <body onClick={handleBodyClick} className={`${fontClassName} relative`}>
+    <body onClick={handleBodyClick} className={`${fontClassName} relative dark:bg-dark-6  `}>
       <NavBar />
       {children}
     </body>

@@ -5,7 +5,8 @@ import BackShadow from "@/components/BackShadow";
 import CategoryMenu from "@/components/CategoryMenu/CategoryMenu";
 import PrimaryButton from "@/components/PrimaryButton";
 import TakShopLogo from "@/components/TakShopLogo";
-import { useModal } from "@/context/LoginModalContext";
+import { useModal } from "@/contexts/LoginModalContext";
+import { useTheme } from "@/hooks/useTheme";
 import Link from "next/link";
 import { useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
@@ -15,10 +16,12 @@ import { FaRegComment, FaRegHeart } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { IoIosArrowUp } from "react-icons/io";
 import { LuGift } from "react-icons/lu";
-import { MdDarkMode, MdNotificationsNone } from "react-icons/md";
+import { MdDarkMode, MdNotificationsNone, MdSunny } from "react-icons/md";
 import { RxExit } from "react-icons/rx";
 
 const NavBar = () => {
+  //! Ui States
+  const { theme, setTheme } = useTheme();
   const [isActiveCategoryMenu, setIsActiveCategoryMenu] = useState(false);
   const [isActiveUserDropDown, setIsActiveUserDropDown] = useState(false);
 
@@ -26,9 +29,17 @@ const NavBar = () => {
 
   const { isModalOpen, openModal, closeModal } = useModal();
 
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("light");
+    } else if (theme === "light") {
+      setTheme("dark");
+    }
+  };
+
   return (
     <>
-      <nav className="sticky top-0 text-black bg-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
+      <nav className="sticky top-0 text-black bg-white dark:bg-dark-8 dark:text-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
         <section className="flex items-center">
           <Link
             href={"/"}
@@ -79,8 +90,12 @@ const NavBar = () => {
           <button className="icon-button">
             <CiSearch />
           </button>
-          <PrimaryButton className="rounded-full" variant="icon">
-            <MdDarkMode />
+          <PrimaryButton
+            onClick={() => toggleTheme()}
+            className="rounded-full"
+            variant="icon"
+          >
+            {theme === "dark" ? <MdDarkMode /> : <MdSunny />}
           </PrimaryButton>
           {isLogin ? (
             <>
@@ -95,11 +110,13 @@ const NavBar = () => {
                   className="flex flex-row-reverse items-center "
                 >
                   <AiOutlineUser />
-                  <IoIosArrowUp className={`text-[1.2rem] ${isActiveUserDropDown && "rotate-180"} transition-transform`} />
+                  <IoIosArrowUp
+                    className={`text-[1.2rem] ${isActiveUserDropDown && "rotate-180"} transition-transform`}
+                  />
                 </Link>
 
                 <section
-                  className={`${isActiveUserDropDown ? "visible opacity-100 translate-y" : "-translate-y-4 opacity-0 invisible"} bg-white desktop-heading2 w-1/5 absolute left-0 rounded-b-xl rounded-tl-lg border-main-500 border-x-2 border-b-2 top-full cursor-default text-black transition-all`}
+                  className={`${isActiveUserDropDown ? "visible opacity-100 translate-y" : "-translate-y-4 opacity-0 invisible"} bg-white desktop-heading2 w-1/5 absolute left-0 rounded-b-xl rounded-tl-lg border-main-500 border-x-2 border-b-2 top-full cursor-default text-black transition-all dark:bg-dark-8 dark:text-white`}
                 >
                   <ul>
                     <Link href={"/user/account"} className="group">
@@ -162,9 +179,15 @@ const NavBar = () => {
           </Link>
         </section>
       </nav>
-      <AuthModal isActive={isModalOpen} setIsLogin={setIsLogin} closeModalMethod={closeModal} />
+      <AuthModal
+        isActive={isModalOpen}
+        setIsLogin={setIsLogin}
+        closeModalMethod={closeModal}
+      />
       <BackShadow
-        isActiveState={isActiveCategoryMenu || isModalOpen || isActiveUserDropDown}
+        isActiveState={
+          isActiveCategoryMenu || isModalOpen || isActiveUserDropDown
+        }
         onClick={closeModal}
       />
     </>

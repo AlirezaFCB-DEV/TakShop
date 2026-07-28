@@ -12,11 +12,11 @@ const PhoneNumber = ({ref} : phoneNumberProps) => {
 
   return (
     <section
-      className={`${isPhoneInpFocus ? "bg-main-50" : "bg-[#f9f9f9]"} p-1 shadow-md rounded-lg flex items-center gap-2 overflow-hidden transition-colors`}
+      className={`${isPhoneInpFocus ? "bg-main-50 dark:bg-dark-6" : "bg-[#f9f9f9] dark:bg-dark-7"} p-1 shadow-md rounded-lg flex items-center gap-2 overflow-hidden transition-colors`}
     >
       <input
         type="tel"
-        className="flex-5 h-full outline-none text-2xl text-main-500"
+        className="flex-5 h-full outline-none text-2xl text-main-500 dark:text-white"
         placeholder="9xx xxx xxxx"
         maxLength={10}
         id={inp_id}
@@ -27,7 +27,7 @@ const PhoneNumber = ({ref} : phoneNumberProps) => {
         ref={ref}
       />
       <label htmlFor={inp_id}>
-        <span className="flex items-center text-main-300 text-2xl py-2.5 px-2 flex-1 border-r-2">
+        <span className="flex items-center text-main-300 dark:text-white text-2xl py-2.5 px-2 flex-1 border-r-2">
           98+
         </span>
       </label>

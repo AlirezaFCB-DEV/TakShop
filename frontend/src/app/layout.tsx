@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { useModal , ModalProvider } from "@/context/LoginModalContext";
-import localFont from "next/font/local"
+import { useModal, ModalProvider } from "@/contexts/LoginModalContext";
+import localFont from "next/font/local";
 import "./globals.css";
 import LayoutContent from "@/components/LayoutContent";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const YekanBakh = localFont({
   src: [
     {
-      path :  "../../public/fonts/yekan-bakh-regular.woff",
+      path: "../../public/fonts/yekan-bakh-regular.woff",
       weight: "400",
-      style : "normal"
+      style: "normal",
     },
     {
       path: "../../public/fonts/yekan-bakh-medium.woff",
@@ -17,18 +18,18 @@ const YekanBakh = localFont({
       style: "normal",
     },
     {
-      path :  "../../public/fonts/yekan-bakh-bold.woff",
-      weight : "800",
-      style : "normal"
+      path: "../../public/fonts/yekan-bakh-bold.woff",
+      weight: "800",
+      style: "normal",
     },
     {
-      path :  "../../public/fonts/yekan-bakh-heavy.woff",
+      path: "../../public/fonts/yekan-bakh-heavy.woff",
       weight: "900",
-      style : "normal"
-    }
+      style: "normal",
+    },
   ],
-  variable : "--yekan-bakh"
-})
+  variable: "--yekan-bakh",
+});
 
 export const metadata: Metadata = {
   icons: "favicon.ico",
@@ -41,16 +42,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html
       lang="fa"
       className={`${YekanBakh.variable} h-full antialiased`}
       dir="rtl"
     >
-      <ModalProvider>
-        <LayoutContent fontClassName={YekanBakh.className}>{children}</LayoutContent>
-      </ModalProvider>
+      <ThemeProvider>
+        <ModalProvider>
+          <LayoutContent fontClassName={YekanBakh.className}>
+            {children}
+          </LayoutContent>
+        </ModalProvider>
+      </ThemeProvider>
     </html>
   );
 }

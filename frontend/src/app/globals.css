@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-dark-color: #1f1f1f;
   --color-light-color: #ededed;
@@ -84,7 +86,7 @@
   }
 
   .category-dropdown_item {
-    @apply flex flex-1 px-4 hover:bg-black/4 gap-2 items-center text-xl hover:text-main-500 cursor-pointer transition-colors;
+    @apply flex flex-1 px-4 hover:bg-black/4 gap-2 items-center text-xl hover:text-main-500 cursor-pointer transition-colors dark:text-white dark:hover:bg-white/4;
   }
 
   .category-title_icon {
@@ -115,13 +117,6 @@
   }
 
   .otp-code_inp {
-    @apply bg-main-50 flex-1 w-full p-2 outline-none rounded-lg text-center text-main-500 font-bold border text-3xl;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    @apply bg-main-50 flex-1 w-full p-2 outline-none rounded-lg text-center text-main-500 dark:bg-dark-7 font-bold border text-3xl;
   }
 }
