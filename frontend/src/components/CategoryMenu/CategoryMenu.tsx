@@ -34,7 +34,7 @@ const CategoryMenu = ({ isActive }: CategoryMenuProps) => {
 
   return (
     <section
-      className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-full transition-all ${isActive ? "visible opacity-100 translate-y" : " invisible -translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden border-x-2 border-b-2 border-main-500 max-h-120`}
+      className={`absolute translate-x-1/2 right-1/2 bg-white w-4/5 top-full transition-all ${isActive ? "visible opacity-100 translate-y" : " invisible -translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden border-x-2 border-b-2 border-main-500 max-h-117.5`}
     >
       <section className="border-l-3 border-transparent [border-image:linear-gradient(to_bottom,#fff,#831fc1,#fff)_1] flex-1">
         <ul className="text-black flex flex-col h-full">
