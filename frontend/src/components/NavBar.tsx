@@ -95,7 +95,7 @@ const NavBar = () => {
             className="rounded-full"
             variant="icon"
           >
-            {theme === "dark" ? <MdDarkMode /> : <MdSunny />}
+            {theme === "dark" ? <MdSunny /> : <MdDarkMode />}
           </PrimaryButton>
           {isLogin ? (
             <>
