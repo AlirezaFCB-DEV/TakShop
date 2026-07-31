@@ -4,7 +4,7 @@ import React from "react";
 
 interface PrimaryButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: "default" | "icon";
+  variant?: "default" | "icon" | "custom";
 }
 
 const PrimaryButton = ({
@@ -19,6 +19,7 @@ const PrimaryButton = ({
   const variantClasses = {
     default: "px-4 py-2 rounded-lg button-primary flex-1",
     icon: "p-2 rounded-full button-primary",
+    custom: ""
   };
 
   return (

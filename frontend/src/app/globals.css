@@ -119,4 +119,12 @@
   .otp-code_inp {
     @apply bg-main-50 flex-1 w-full p-2 outline-none rounded-lg text-center text-main-500 dark:bg-dark-7 font-bold border text-3xl;
   }
+
+  .shop-info_icon {
+    @apply text-main-500 text-2xl;
+  }
+
+  .footer-icon {
+    @apply text-5xl text-main-500 hover:text-main-700 transition-colors;
+  }
 }

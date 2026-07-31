@@ -2,6 +2,7 @@
 
 import { useModal } from "@/contexts/LoginModalContext";
 import NavBar from "./NavBar";
+import Footer from "./Footer/Footer";
 
 interface LayoutContentType {
   children: React.ReactNode;
@@ -18,9 +19,13 @@ const LayoutContent = ({ children, fontClassName }: LayoutContentType) => {
   };
 
   return (
-    <body onClick={handleBodyClick} className={`${fontClassName} relative dark:bg-dark-6  `}>
+    <body
+      onClick={handleBodyClick}
+      className={`${fontClassName} relative dark:bg-dark-6  `}
+    >
       <NavBar />
       {children}
+      <Footer />
     </body>
   );
 };

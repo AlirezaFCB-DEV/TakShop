@@ -2,12 +2,15 @@
 
 import { FaShopify } from "react-icons/fa";
 
+interface takShopLogoProps {
+  sizeClass ?: string
+}
 
-const TakShopLogo = () => {
+const TakShopLogo = ({sizeClass = "desktop-main-title"} : takShopLogoProps) => {
   return (
-      <section className={`desktop-main-title items-center flex gap-4 text-main-500`}>
+      <section className={`${sizeClass} items-center flex gap-4 text-main-500`}>
       <FaShopify />
-      <h1>تک شاپ</h1>
+      <span>تک شاپ</span>
     </section>
   );
 };
