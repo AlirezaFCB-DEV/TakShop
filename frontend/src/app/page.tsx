@@ -3,14 +3,10 @@
 import Carousel from "@/components/carousel/Carousel";
 
 const Home = () => {
-  
-
   return (
-    <section className="container">
-      <header className="">
-        <Carousel />
-      </header>
-    </section>
+    <header className="">
+      <Carousel />
+    </header>
   );
 };
 

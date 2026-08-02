@@ -24,7 +24,9 @@ const LayoutContent = ({ children, fontClassName }: LayoutContentType) => {
       className={`${fontClassName} relative dark:bg-dark-6  `}
     >
       <NavBar />
-      {children}
+      <section className="container dark:bg-dark-6">
+        {children}
+      </section>
       <Footer />
     </body>
   );

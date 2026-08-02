@@ -47,7 +47,7 @@ const NavBar = () => {
         <section>
           <ul className="flex gap-10 text-lg h-full z-10">
             <li className="nav-menu_item">
-              <Link href={"/"}>
+              <Link href={"/"} className="nav-menu_link">
                 <span>صفحه اصلی</span>
               </Link>
             </li>
