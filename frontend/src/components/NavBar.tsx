@@ -46,13 +46,13 @@ const NavBar = () => {
         </section>
         <section>
           <ul className="flex gap-10 text-lg h-full z-10">
-            <li className="header-menu_item">
+            <li className="nav-menu_item">
               <Link href={"/"}>
                 <span>صفحه اصلی</span>
               </Link>
             </li>
             <li
-              className="header-menu_item gap-1 cursor-pointer group "
+              className="nav-menu_item gap-1 cursor-pointer group "
               onMouseEnter={() => setIsActiveCategoryMenu(true)}
               onMouseLeave={() => setIsActiveCategoryMenu(false)}
             >
@@ -60,23 +60,23 @@ const NavBar = () => {
               <IoIosArrowUp className="group-hover:-rotate-180 transition-transform" />
               <CategoryMenu isActive={isActiveCategoryMenu} />
             </li>
-            <li className="header-menu_item">
-              <Link href={"/blogs"}>
+            <li className="nav-menu_item">
+              <Link href={"/blogs"} className="nav-menu_link">
                 <span>بلاگ پست</span>
               </Link>
             </li>
-            <li className="header-menu_item">
-              <Link href={"/offers"}>
+            <li className="nav-menu_item">
+              <Link href={"/offers"} className="nav-menu_link">
                 <span>تخفیف</span>
               </Link>
             </li>
-            <li className="header-menu_item">
-              <Link href={"/about-us"}>
+            <li className="nav-menu_item">
+              <Link href={"/about-us"} className="nav-menu_link">
                 <span>درباره ما</span>
               </Link>
             </li>
-            <li className="header-menu_item">
-              <Link href={"/contact-us"}>
+            <li className="nav-menu_item">
+              <Link href={"/contact-us"} className="nav-menu_link">
                 <span>تماس با‌ما</span>
               </Link>
             </li>

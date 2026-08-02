@@ -87,8 +87,12 @@
     @apply text-4xl text-button-default hover:text-button-hover selection:bg-button-selected cursor-pointer transition-colors flex items-center;
   }
 
-  .header-menu_item {
-    @apply hover:text-main-700 transition-colors flex items-center py-8;
+  .nav-menu_item {
+    @apply flex items-center py-8;
+  }
+
+  .nav-menu_link  {
+    @apply hover:text-main-700 transition-colors
   }
 
   .category-dropdown_item {
