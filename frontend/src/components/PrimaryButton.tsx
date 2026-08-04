@@ -25,7 +25,7 @@ const PrimaryButton = ({
   return (
     <section className="flex items-center">
       <button
-        className={`${className}  ${baseClasses} ${variantClasses[variant]}`}
+        className={`${className}  ${baseClasses} ${variantClasses[variant]} hover:shadow-[0_0_5px_0px_#831fc1]`}
         {...rest}
       >
         {children}

@@ -24,7 +24,7 @@ const Carousel = () => {
         setIsAnimating(true);
         setPosition((prev) => prev + 1);
       }
-    }, 1000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [isAnimating]);

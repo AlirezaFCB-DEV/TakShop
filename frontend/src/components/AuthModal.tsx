@@ -37,7 +37,7 @@ const AuthModal = ({
 
   return (
     <section
-      className={`absolute w-full h-dvh top-0 flex items-center justify-center z-10 transition-all ${isActive ? "visible opacity-100" : "invisible opacity-0"}`}
+      className={`absolute w-full h-dvh top-0 flex items-center justify-center z-20 transition-all ${isActive ? "visible opacity-100" : "invisible opacity-0"}`}
     >
       <form
         className="bg-white dark:bg-dark-8 dark:text-white border-2 border-main-500 rounded-2xl w-1/3 flex flex-col gap-4 py-8 px-12"

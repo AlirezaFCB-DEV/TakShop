@@ -36,7 +36,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 text-black bg-white dark:bg-dark-8 dark:text-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-10">
+      <nav className="sticky top-0 text-black bg-white dark:bg-dark-8 dark:text-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-20">
         <section className="flex items-center">
           <Link href={"/"} className="flex gap-4 text-main-500">
             <h1>
