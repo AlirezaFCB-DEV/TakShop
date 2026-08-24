@@ -1,5 +1,6 @@
 "use client";
 
+import BestOffers from "@/components/bestOffers/BestOffers";
 import Carousel from "@/components/carousel/Carousel";
 import CategoryCard from "@/components/categoryCard/CategoryCard";
 import { CategoryCards } from "@/components/categoryCard/categoryCardsData";
@@ -14,12 +15,13 @@ const Home = () => {
         <header>
           <Carousel />
         </header>
-        <main>
+        <main className="flex flex-col gap-16">
           <ContentSection>
             {CategoryCards.map((card, index) => (
               <CategoryCard {...card} key={index} />
             ))}
           </ContentSection>
+          <BestOffers />
         </main>
       </section>
     </>
