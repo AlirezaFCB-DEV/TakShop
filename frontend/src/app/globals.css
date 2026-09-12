@@ -37,7 +37,6 @@
   width: 85%;
   margin: 0 auto;
   padding: 4.5rem 0;
-  
 }
 
 @utility desktop-main-title {
@@ -92,8 +91,8 @@
     @apply flex items-center py-8;
   }
 
-  .nav-menu_link  {
-    @apply hover:text-main-700 transition-colors
+  .nav-menu_link {
+    @apply hover:text-main-700 transition-colors;
   }
 
   .category-dropdown_item {
@@ -140,6 +139,18 @@
   }
 
   .slider-btn {
-    @apply p-3 absolute text-main-500 text-4xl bottom-1/2 translate-y-1/2 rounded-md cursor-pointer 
+    @apply p-3 absolute text-main-500 text-4xl bottom-1/2 translate-y-1/2 rounded-md cursor-pointer;
+  }
+
+  .bestOffers-timer_counter {
+    @apply text-main-700 flex flex-col;
+  }
+
+  .timer-separator {
+    @apply w-0.5 bg-main-500;
+  }
+
+  .carousel-navigation_btn {
+    @apply text-2xl absolute bg-main-50 text-main-500 p-3 flex items-center justify-center rounded-xl top-1/2 -translate-y-1/2 cursor-pointer hover:bg-main-100 transition-all z-10;
   }
 }
