@@ -6,53 +6,13 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ProductCard from "../productCard/ProductCard";
 import { BestOffersProducts } from "./BestOffersProductsData";
 import { useEffect, useRef, useState } from "react";
+import Rail from "../rail/rail";
 
 const BestOffers = () => {
-  const trackRef = useRef<HTMLElement | null>(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-  const cardSpace = 256;
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const update = () => {
-      const scrollLeft = Math.abs(track.scrollLeft);
-      const maxScroll = track.scrollWidth - track.clientWidth;
-
-      setAtStart(scrollLeft < cardSpace);
-      setAtEnd(scrollLeft > maxScroll - cardSpace);
-    };
-
-    update();
-
-    track.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-
-    return () => {
-      track.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
-
-  const scrollByAmount = (dir: 1 | -1) => {
-    trackRef.current?.scrollBy({ left: dir * cardSpace, behavior: "smooth" });
-  };
 
   return (
-    <section className="bg-main-600 text-white rounded-2xl relative">
-      <button
-        onClick={() => scrollByAmount(1)}
-        className={`carousel-navigation_btn right-5 ${atStart ? "opacity-0 invisible" : "opacity-100 visible"}`}
-      >
-        <FaChevronRight />
-      </button>
-
-      <section
-        className="flex gap-10 overflow-x-scroll scrollbar-none scroll-smooth px-6 py-5 "
-        ref={trackRef}
-      >
+    <section className="bg-main-600 text-white rounded-2xl">
+      <Rail>
         <section className="min-w-1/5 text-center flex flex-col gap-4 justify-center">
           <h2 className="text-3xl font-bold px-4 ">
             کالاهایی با بیشترین تخفیف
@@ -88,14 +48,7 @@ const BestOffers = () => {
             </section>
           </Link>
         </section>
-      </section>
-
-      <button
-        className={`carousel-navigation_btn left-5 ${atEnd ? "opacity-0 invisible" : "opacity-100 visible"}`}
-        onClick={() => scrollByAmount(-1)}
-      >
-        <FaChevronLeft />
-      </button>
+      </Rail>
     </section>
   );
 };

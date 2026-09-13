@@ -1,7 +1,7 @@
 "use client";
 
 import BestOffers from "@/components/bestOffers/BestOffers";
-import Carousel from "@/components/carousel/Carousel";
+import HeroSection from "@/components/hero-section/hero-section";
 import CategoryCard from "@/components/categoryCard/CategoryCard";
 import { CategoryCards } from "@/components/categoryCard/categoryCardsData";
 import ContentSection from "@/components/contentSection/ContentSection";
@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <section className="flex flex-col gap-16">
         <header>
-          <Carousel />
+          <HeroSection />
         </header>
         <main className="flex flex-col gap-16">
           <ContentSection>

@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
-import { loopSlides, slides } from "./carouselSlidesData";
+import { loopSlides, slides } from "./hero-section-data";
 
-const Carousel = () => {
+const HeroSection = () => {
   const [position, setPosition] = useState(1);
   const [transition, setTransition] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -118,4 +118,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default HeroSection;
