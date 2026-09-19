@@ -4,7 +4,7 @@ import Link from "next/link";
 import BestOffersTimer from "./bestOffersTimer/BestOffersTimer";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ProductCard from "../productCard/ProductCard";
-import { BestOffersProducts } from "./BestOffersProductsData";
+import { BestOffersProducts } from "../../data/best-offers/best-offers-products-data";
 import { useEffect, useRef, useState } from "react";
 import Rail from "../rail/rail";
 
@@ -12,7 +12,7 @@ const BestOffers = () => {
 
   return (
     <section className="bg-main-600 text-white rounded-2xl">
-      <Rail>
+      <Rail cardSpace={256}>
         <section className="min-w-1/5 text-center flex flex-col gap-4 justify-center">
           <h2 className="text-3xl font-bold px-4 ">
             کالاهایی با بیشترین تخفیف

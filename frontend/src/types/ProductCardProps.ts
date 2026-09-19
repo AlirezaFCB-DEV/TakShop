@@ -1,8 +1,8 @@
-export default interface ProductCardProps {
+export interface ProductCardProps {
   image: { src: string; alt: string };
   title: string;
   rate: number;
   isFreeShipping: boolean;
-  offer: number;
+  offer?: number;
   price: number;
 }

@@ -1,4 +1,4 @@
-import ProductCardProps from "@/types/ProductCardProps";
+import {ProductCardProps} from "@/types/ProductCardProps";
 
 export const BestOffersProducts: ProductCardProps[] = [
   {
