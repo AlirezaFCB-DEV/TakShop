@@ -1,3 +1,4 @@
 export interface RailProps {
-    children: React.ReactNode
+  children: React.ReactNode;
+  cardSpace: number;
 }

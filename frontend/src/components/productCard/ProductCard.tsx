@@ -1,6 +1,6 @@
 "use client";
 
-import ProductCardProps from "@/types/ProductCardProps";
+import {ProductCardProps} from "@/types/ProductCardProps";
 import Image from "next/image";
 import Link from "next/link";
 import { FaStar, FaTruck } from "react-icons/fa";
@@ -10,7 +10,7 @@ const ProductCard = ({
   title,
   rate,
   isFreeShipping,
-  offer,
+  offer = 0,
   price,
 }: ProductCardProps) => {
   const offerPrice = (offer * price) / 100;
@@ -44,7 +44,7 @@ const ProductCard = ({
             </section>
           )}
         </section>
-        {offer && offer > 0 && (
+        {offer > 0 && (
           <section className="flex items-center justify-between px-3">
             <section className="flex items-center bg-red-500 text-white text-sm px-3 rounded-2xl">
               <span>{offer}%</span>

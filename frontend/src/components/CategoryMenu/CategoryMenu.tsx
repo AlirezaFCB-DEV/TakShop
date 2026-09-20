@@ -27,9 +27,13 @@ const CategoryMenu = ({ isActive }: CategoryMenuProps) => {
   }, [mainCategory]);
 
   useEffect(() => {
-    if (!isActive) {
-      setMainCategory("موبایل");
-    }
+    const update = () => {
+      if (!isActive) {
+        setMainCategory("موبایل");
+      }
+    };
+
+    update();
   }, [isActive]);
 
   return (

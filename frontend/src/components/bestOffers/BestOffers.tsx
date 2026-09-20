@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import BestOffersTimer from "./bestOffersTimer/BestOffersTimer";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 import ProductCard from "../productCard/ProductCard";
-import { BestOffersProducts } from "./BestOffersProductsData";
-import { useEffect, useRef, useState } from "react";
+import { BestOffersProducts } from "../../data/best-offers/best-offers-products-data";
 import Rail from "../rail/rail";
 
 const BestOffers = () => {
 
   return (
     <section className="bg-main-600 text-white rounded-2xl">
-      <Rail>
+      <Rail cardSpace={256}>
         <section className="min-w-1/5 text-center flex flex-col gap-4 justify-center">
           <h2 className="text-3xl font-bold px-4 ">
             کالاهایی با بیشترین تخفیف
@@ -43,8 +42,8 @@ const BestOffers = () => {
           >
             <span>مشاهده همه </span>
             <section className="flex items-center">
-              <section className="w-0 group-hover:w-4 transition-all h-1.5 rounded-3xl bg-white group-hover:bg-main-500"></section>
-              <FaChevronLeft className="text-2xl bg-transparent" />
+              <section className="w-0 group-hover:w-4.5 transition-all h-1 rounded-3xl bg-white group-hover:bg-main-500"></section>
+              <FaChevronLeft className="text-xl bg-transparent" />
             </section>
           </Link>
         </section>

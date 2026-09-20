@@ -4,11 +4,10 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { RailProps } from "@/types/rail-props";
 import { useEffect, useRef, useState } from "react";
 
-const Rail = ({ children }: RailProps) => {
+const Rail = ({ children , cardSpace}: RailProps) => {
   const trackRef = useRef<HTMLElement | null>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
-  const cardSpace = 256;
 
   useEffect(() => {
     const track = trackRef.current;
@@ -19,7 +18,7 @@ const Rail = ({ children }: RailProps) => {
       const maxScroll = track.scrollWidth - track.clientWidth;
 
       setAtStart(scrollLeft < cardSpace);
-      setAtEnd(scrollLeft > maxScroll - cardSpace);
+      setAtEnd(scrollLeft > maxScroll - cardSpace / 2);
     };
 
     update();
@@ -31,7 +30,7 @@ const Rail = ({ children }: RailProps) => {
       track.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+  }, [cardSpace]);
 
   const scrollByAmount = (dir: 1 | -1) => {
     trackRef.current?.scrollBy({ left: dir * cardSpace, behavior: "smooth" });
@@ -47,7 +46,7 @@ const Rail = ({ children }: RailProps) => {
       </button>
 
       <section
-        className="flex gap-10 overflow-x-scroll scrollbar-none scroll-smooth px-6 py-5 "
+        className="flex gap-5 overflow-x-scroll scrollbar-none scroll-smooth px-6 py-5 "
         ref={trackRef}
       >
         {children}

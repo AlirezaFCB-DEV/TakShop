@@ -8,7 +8,7 @@ interface BackShadowProps {
 const BackShadow = ({ isActiveState, onClick }: BackShadowProps) => {
   return (
     <section
-    className={`fixed bg-black/50 transition-all ${isActiveState ? "visible opacity-100 backdrop-blur-xl " : "invisible opacity-0"} w-full h-dvh top-0 z-10`}
+    className={`fixed bg-black/50 transition-all ${isActiveState ? "visible opacity-100 backdrop-blur-xl " : "invisible opacity-0"} w-full h-dvh top-0 z-20`}
       onClick={onClick}
     ></section>
   );
