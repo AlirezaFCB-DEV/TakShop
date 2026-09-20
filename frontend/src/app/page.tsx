@@ -12,13 +12,18 @@ import { FaChevronLeft } from "react-icons/fa";
 import { brands } from "@/data/brands-data";
 import PopularBrand from "@/components/brand/brand";
 import { newProducts } from "@/data/new-products-data";
+import { firstHeroSectionData } from "@/data/herosection/first-herosection-data";
+import { SecondHeroSectionData } from "@/data/herosection/second-herosection-data";
 
 const Home = () => {
   return (
     <>
       <section className="flex flex-col gap-16">
         <header>
-          <HeroSection />
+          <HeroSection
+            slides={firstHeroSectionData.slides}
+            loopSlides={firstHeroSectionData.loopSlides}
+          />
         </header>
         <main className="flex flex-col gap-16">
           <ContentSection
@@ -65,6 +70,10 @@ const Home = () => {
               <ProductCard {...product} key={product.title} />
             ))}
           </ContentSection>
+          <HeroSection
+            slides={SecondHeroSectionData.slides}
+            loopSlides={SecondHeroSectionData.loopSlides}
+          />
         </main>
       </section>
     </>

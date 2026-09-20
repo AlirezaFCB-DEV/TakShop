@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
-import { loopSlides, slides } from "./hero-section-data";
+import { HeroSectionProps } from "@/types/herosection-props";
 
-const HeroSection = () => {
+const HeroSection = ({slides , loopSlides} : HeroSectionProps) => {
   const [position, setPosition] = useState(1);
   const [transition, setTransition] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -87,7 +87,7 @@ const HeroSection = () => {
               draggable="false"
               className="w-full h-full object-cover"
               src={item.imageUrl}
-              alt="slider-poster"
+              alt={item.alt}
             />
           </Link>
         ))}
