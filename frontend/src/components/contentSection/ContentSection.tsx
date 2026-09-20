@@ -45,7 +45,7 @@ const ContentSection = ({
           </section>
         </>
       ) : (
-        <section className="flex gap-4">{children}</section>
+        <section className="w-full flex justify-between">{children}</section>
       )}
     </section>
   );

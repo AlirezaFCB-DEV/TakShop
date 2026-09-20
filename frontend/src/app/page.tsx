@@ -5,15 +5,15 @@ import HeroSection from "@/components/hero-section/hero-section";
 import CategoryCard from "@/components/categoryCard/CategoryCard";
 import { CategoryCards } from "@/components/categoryCard/categoryCardsData";
 import ContentSection from "@/components/contentSection/ContentSection";
-import Link from "next/link";
 import { BestSellingProducts } from "@/data/best-offers/best-selling-products-data";
 import ProductCard from "@/components/productCard/ProductCard";
-import { FaChevronLeft } from "react-icons/fa";
 import { brands } from "@/data/brands-data";
 import PopularBrand from "@/components/brand/brand";
 import { newProducts } from "@/data/new-products-data";
 import { firstHeroSectionData } from "@/data/herosection/first-herosection-data";
 import { SecondHeroSectionData } from "@/data/herosection/second-herosection-data";
+import { posts } from "@/data/posts-data";
+import Post from "@/components/post/post";
 
 const Home = () => {
   return (
@@ -74,6 +74,17 @@ const Home = () => {
             slides={SecondHeroSectionData.slides}
             loopSlides={SecondHeroSectionData.loopSlides}
           />
+
+          <ContentSection
+            title="بلاگ پست"
+            description="در این قسمت شما میتوانید اخبار و مقالات تک شاپ را مشاهده بکنید"
+            carousel={true}
+            viewAllLinkHref="/posts"
+          >
+            {posts.map((post) => (
+              <Post {...post} key={post.title} />
+            ))}
+          </ContentSection>
         </main>
       </section>
     </>
