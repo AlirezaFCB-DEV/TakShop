@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import BestOffersTimer from "./bestOffersTimer/BestOffersTimer";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 import ProductCard from "../productCard/ProductCard";
 import { BestOffersProducts } from "../../data/best-offers/best-offers-products-data";
-import { useEffect, useRef, useState } from "react";
 import Rail from "../rail/rail";
 
 const BestOffers = () => {
@@ -43,8 +42,8 @@ const BestOffers = () => {
           >
             <span>مشاهده همه </span>
             <section className="flex items-center">
-              <section className="w-0 group-hover:w-4 transition-all h-1.5 rounded-3xl bg-white group-hover:bg-main-500"></section>
-              <FaChevronLeft className="text-2xl bg-transparent" />
+              <section className="w-0 group-hover:w-4.5 transition-all h-1 rounded-3xl bg-white group-hover:bg-main-500"></section>
+              <FaChevronLeft className="text-xl bg-transparent" />
             </section>
           </Link>
         </section>

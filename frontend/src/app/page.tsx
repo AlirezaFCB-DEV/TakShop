@@ -9,6 +9,8 @@ import Link from "next/link";
 import { BestSellingProducts } from "@/data/best-offers/best-selling-products-data";
 import ProductCard from "@/components/productCard/ProductCard";
 import { FaChevronLeft } from "react-icons/fa";
+import { brands } from "@/data/brands";
+import PopularBrand from "@/components/brand/brand";
 
 const Home = () => {
   return (
@@ -31,20 +33,25 @@ const Home = () => {
             title="محصولات پرفروش"
             description="در این قسمت شما میتوانید محصولات پر فروش تک شاپ را در طول هفته گذشته مشاهده بکنید"
             carousel={true}
+            viewAllLinkHref={"/best-selling-products"}
           >
             {BestSellingProducts.map((product, index) => (
               <ProductCard {...product} key={index} />
             ))}
-            <Link
-              href={"/best-selling-products"}
-              className="min-w-60 group hover:text-main-500 text-nowrap flex items-center justify-center gap-2 text-xl dark:text-white"
-            >
-              <span>مشاهده همه </span>
-              <section className="flex items-center">
-                <section className="w-0 group-hover:w-4 transition-all h-1.5 rounded-3xl bg-white dark:bg-dark-6 group-hover:bg-main-500"></section>
-                <FaChevronLeft className="text-2xl bg-transparent" />
-              </section>
-            </Link>
+          </ContentSection>
+          <ContentSection
+            title="برند های محبوب"
+            description="در این قسمت شما میتوانید برند های محبوب را که بیشترین فروش را دارن مشاهده بکنید"
+            carousel
+            viewAllLinkHref={"/popular-brands"}
+          >
+            {brands.map((brand) => (
+              <PopularBrand
+                src={brand.image}
+                alt={brand.name}
+                key={brand.name}
+              />
+            ))}
           </ContentSection>
         </main>
       </section>
