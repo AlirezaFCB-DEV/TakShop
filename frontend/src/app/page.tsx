@@ -9,8 +9,9 @@ import Link from "next/link";
 import { BestSellingProducts } from "@/data/best-offers/best-selling-products-data";
 import ProductCard from "@/components/productCard/ProductCard";
 import { FaChevronLeft } from "react-icons/fa";
-import { brands } from "@/data/brands";
+import { brands } from "@/data/brands-data";
 import PopularBrand from "@/components/brand/brand";
+import { newProducts } from "@/data/new-products-data";
 
 const Home = () => {
   return (
@@ -51,6 +52,17 @@ const Home = () => {
                 alt={brand.name}
                 key={brand.name}
               />
+            ))}
+          </ContentSection>
+
+          <ContentSection
+            title="محصولات تازه"
+            description="در این قسمت شما میتوانید محصولاتی را که جدیدا به سایت اضافه شده اند را مشاهده بکنید"
+            carousel={true}
+            viewAllLinkHref={"/new-products"}
+          >
+            {newProducts.map((product) => (
+              <ProductCard {...product} key={product.title} />
             ))}
           </ContentSection>
         </main>

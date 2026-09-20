@@ -17,7 +17,7 @@ const Rail = ({ children , cardSpace}: RailProps) => {
       const scrollLeft = Math.abs(track.scrollLeft);
       const maxScroll = track.scrollWidth - track.clientWidth;
 
-      setAtStart(scrollLeft < cardSpace);
+      setAtStart(scrollLeft < cardSpace / 2);
       setAtEnd(scrollLeft > maxScroll - cardSpace / 2);
     };
 
