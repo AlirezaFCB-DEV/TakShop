@@ -14,8 +14,35 @@ import { firstHeroSectionData } from "@/data/herosection/first-herosection-data"
 import { SecondHeroSectionData } from "@/data/herosection/second-herosection-data";
 import { posts } from "@/data/posts-data";
 import Post from "@/components/post/post";
+import { FaCircle } from "react-icons/fa";
+import PrimaryButton from "@/components/PrimaryButton";
+import Link from "next/link";
+import FAQ from "@/components/faq/faq";
+import { FAQCategories } from "@/data/FAQ/FAQ-category-data";
+import { useEffect, useState } from "react";
+import { FAQCategoryTitle } from "@/types/FAQ/faq-category-props";
+import { FAQItemProps } from "@/types/FAQ/faq-props";
+import { FAQItems } from "@/data/FAQ/FAQ-items-data";
 
 const Home = () => {
+  const [currentCategory, setCurrentCategory] = useState<FAQCategoryTitle>(
+    "سوالات مربوط به تک شاپ",
+  );
+
+  const [FAQs, setFAQs] = useState<FAQItemProps[] | null>(null);
+
+  useEffect(() => {
+    const update = () => {
+      const currentFAQs: FAQItemProps[] = FAQItems.filter(
+        (item) => item.category === currentCategory,
+      );
+
+      setFAQs(currentFAQs);
+    };
+
+    update();
+  }, [currentCategory]);
+
   return (
     <>
       <section className="flex flex-col gap-16">
@@ -84,6 +111,46 @@ const Home = () => {
             {posts.map((post) => (
               <Post {...post} key={post.title} />
             ))}
+          </ContentSection>
+
+          <ContentSection
+            title="سوالات متداول"
+            description="در این قسمت شما میتوانید سوالات متداول را به صورت دسته بندی شده مشاهده کنید"
+          >
+            <section className="w-full h-full flex justify-between gap-12">
+              <section className="flex-2 flex flex-col gap-9 dark:text-white">
+                <p className="">
+                  در این قسمت شما میتوانید سوالات متداول را به صورت دسته بندی
+                  شده مشاهده بکنید. هدف ما این است که شما را به بهترین نحو
+                  راهنمایی کنیم.
+                </p>
+                <ul className="flex flex-col gap-2n;kj">
+                  {FAQCategories.map((category) => (
+                    <li
+                      className={`flex gap-2 desktop-heading3 items-center hover:text-main-500 cursor-pointer transition-colors ${currentCategory === category.title ? "text-main-500" : ""}`}
+                      key={category.id}
+                      onClick={() => setCurrentCategory(category.title)}
+                    >
+                      <FaCircle />
+                      {category.title}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={"/contact-us"}>
+                  <PrimaryButton>تماس با پشتیبانی</PrimaryButton>
+                </Link>
+              </section>
+              <section className="flex-5 flex flex-col gap-4">
+                {FAQs &&
+                  FAQs.map((faq) => (
+                    <FAQ
+                      key={faq.id}
+                      title={faq.title}
+                      description={faq.description}
+                    />
+                  ))}
+              </section>
+            </section>
           </ContentSection>
         </main>
       </section>

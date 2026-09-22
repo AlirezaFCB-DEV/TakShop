@@ -24,7 +24,7 @@ const ContentSection = ({
       <section className="text-center">
         <section className="relative p-3">
           <h2 className="text-4xl font-bold text-main-500">{title}</h2>
-          <section className="absolute h-2 w-1/12 bg-main-500 top-0 left-1/2 -translate-x-1/2 rounded-full"></section>
+          <section className="absolute h-2 w-1/12 bg-main-500 -top-1 left-1/2 -translate-x-1/2 rounded-full"></section>
         </section>
         <p className="text-gray-300 text-xl">{description}</p>
       </section>
@@ -34,7 +34,7 @@ const ContentSection = ({
           <section className="flex items-center justify-center">
             <Link
               href={viewAllLinkHref}
-              className="max-w-max group hover:text-shadow-sm text-shadow-main-100  text-main-500 text-nowrap flex items-center justify-center gap-2 text-xl transition-all"
+              className="max-w-max group hover:text-shadow-sm text-shadow-main-100  dark:text-shadow-main-600 text-main-500 text-nowrap flex items-center justify-center gap-2 text-xl transition-all"
             >
               <span>مشاهده همه </span>
               <section className="flex items-center">
