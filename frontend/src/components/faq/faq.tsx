@@ -1,7 +1,11 @@
 "use client";
 
-import { FAQProps } from "@/types/FAQ/faq-props";
 import { useState } from "react";
+
+interface FAQProps {
+  title: string;
+  description: string;
+}
 
 const FAQ = ({ title, description }: FAQProps) => {
   const [isOpen, setIsOpen] = useState(false);
