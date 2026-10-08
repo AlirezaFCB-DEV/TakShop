@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 import { HeroSectionProps } from "@/types/herosection-props";
@@ -70,7 +71,9 @@ const HeroSection = ({ slides, loopSlides }: HeroSectionProps) => {
   };
 
   return (
-    <section className="hero-frame">
+    <section
+      className="hero-frame"
+    >
       <section
         className={`hero-track ${transition ? "transition-transform duration-500" : ""}`}
         style={{ transform: `translateX(${position * 100}%)` }}
@@ -81,7 +84,7 @@ const HeroSection = ({ slides, loopSlides }: HeroSectionProps) => {
             <Image
               fill
               draggable="false"
-              sizes="85vw"
+              sizes="(max-width: 767px) 100vw, 85vw"
               className="hero-image"
               src={item.imageUrl}
               alt={item.alt}

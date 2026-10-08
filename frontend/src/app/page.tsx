@@ -10,19 +10,21 @@ import HomeFAQSection from "@/components/home/HomeFAQSection";
 
 const Home = () => {
   return (
-    <section className="flex min-w-0 flex-col gap-16">
+    <main className="home-page">
       <HomeHeader />
-      <main className="flex min-w-0 flex-col gap-16">
+      <section className="home-content">
         <HomeCategoriesSection />
         <HomeBestOffersSection />
         <HomeBestSellingSection />
         <HomePopularBrandsSection />
         <HomeNewProductsSection />
-        <HomeSecondHero />
+      </section>
+      <HomeSecondHero />
+      <section className="home-content">
         <HomeBlogSection />
         <HomeFAQSection />
-      </main>
-    </section>
+      </section>
+    </main>
   );
 };
 

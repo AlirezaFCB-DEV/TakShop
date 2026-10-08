@@ -219,7 +219,8 @@
 
   @media (max-width: 767px) {
     .hero-frame {
-      aspect-ratio: 13 / 7;
+      aspect-ratio: 13 / 6;
+      border-radius: 0;
     }
   }
 
@@ -237,6 +238,28 @@
 
   .hero-dot {
     @apply h-3 rounded-full bg-main-400 transition-all duration-500 cursor-pointer;
+  }
+
+  .home-page {
+    @apply flex min-w-0 flex-col gap-16;
+    padding-block: 4.5rem;
+  }
+
+  .home-content {
+    @apply flex min-w-0 flex-col gap-16;
+    width: 85%;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 768px) {
+    .home-page {
+      padding-block: 0;
+    }
+
+    .home-content {
+      width: 100%;
+      margin-inline: 0;
+    }
   }
 
   .bestOffers-timer_counter {

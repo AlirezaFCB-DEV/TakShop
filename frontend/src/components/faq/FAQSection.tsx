@@ -32,10 +32,6 @@ const FAQSection = () => {
   return (
     <section className="w-full h-full flex flex-col lg:flex-row justify-between gap-8 lg:gap-12">
       <section className="lg:flex-2 flex flex-col gap-9 dark:text-white">
-        <p className="text-base lg:text-lg leading-8">
-          در این قسمت شما میتوانید سوالات متداول را به صورت دسته بندی شده
-          مشاهده بکنید. هدف ما این است که شما را به بهترین نحو راهنمایی کنیم.
-        </p>
         <ul className="flex flex-col gap-2">
           {FAQCategories.map((category) => (
             <li
