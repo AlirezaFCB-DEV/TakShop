@@ -7,7 +7,7 @@ import { firstHeroSectionData } from "@/data/herosection/first-herosection-data"
  */
 const HomeHeader = () => {
   return (
-    <header>
+    <header className="sm:pt-18">
       <HeroSection
         slides={firstHeroSectionData.slides}
         loopSlides={firstHeroSectionData.loopSlides}

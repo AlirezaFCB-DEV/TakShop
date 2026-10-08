@@ -24,7 +24,7 @@ const LayoutContent = ({ children, fontClassName }: LayoutContentType) => {
   return (
     <body
       onClick={handleBodyClick}
-      className={`${fontClassName} relative dark:bg-dark-6  `}
+      className={`${fontClassName} relative dark:bg-dark-6`}
     >
       <NavBar />
       <section className={"w-screen md:container min-w-0 dark:bg-dark-6"}>
