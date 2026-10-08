@@ -53,8 +53,8 @@ const AuthModal = ({
         <h2 className="flex justify-center ">
           <TakShopLogo />
         </h2>
-        <h3 className="desktop-heading2 flex justify-center">ورود / ثبت نام</h3>
-        <section className="text-lg">
+        <h3 className="desktop-heading3 sm:desktop-heading2 flex justify-center">ورود / ثبت نام</h3>
+        <section className="text-md sm:text-lg">
           <p>سلام به تک شاپ خوش اومدید!</p>
           <p>برای ورود لطفا شماره موبایل خود را وارد کنید</p>
         </section>

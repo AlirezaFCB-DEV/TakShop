@@ -35,7 +35,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 text-black bg-white dark:bg-dark-8 dark:text-white flex items-center justify-between gap-1 px-2 py-2 sm:px-6 sm:gap-4 xl:px-10 xl:py-0 border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-30">
+      <nav className="sticky top-0 text-black bg-white dark:bg-dark-8 dark:text-white flex items-center justify-between   px-3 py-4 gap-4 lg:px-6 lg:py-0 xl:px-10 border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-30">
         <section className="flex items-center">
           <Link href={"/"} className="flex gap-4 text-main-500">
             <h1>
@@ -82,7 +82,7 @@ const NavBar = () => {
             </li>
           </ul>
         </section>
-        <section className="flex items-center gap-1 sm:gap-4">
+        <section className="flex items-center gap-2 sm:gap-4">
           <button type="button" aria-label="جستجو" className="nav-bar_btn ">
             <CiSearch />
           </button>
@@ -118,7 +118,7 @@ const NavBar = () => {
                 <PrimaryButton
                   onClick={openModal}
                   variant="custom"
-                  className="rounded-lg px-3 py-1.5 button-sm whitespace-nowrap xl:px-4 xl:py-2 xl:button-lg"
+                  className="rounded-lg px-4 py-2 button-sm whitespace-nowrap xl:px-4 xl:py-2 xl:button-lg"
                 >
                   ثبت نام / ورود
                 </PrimaryButton>

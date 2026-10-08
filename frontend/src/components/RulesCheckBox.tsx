@@ -9,7 +9,7 @@ const RulesCheckBox = ({setIsAcceptRules} : RulesCheckBoxProps) => {
   const checkbox_id = useId();
     
   return (
-    <section className="flex items-center gap-2 text-lg ">
+    <section className="flex items-center gap-2 text-md sm:text-lg ">
       <input
         type="checkbox"
         name="rememberMe"

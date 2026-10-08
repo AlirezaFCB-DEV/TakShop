@@ -16,7 +16,7 @@ interface userMenuProps {
 const UserMenu = ({ isActive }: userMenuProps) => {
   return (
     <section
-      className={`${isActive ? "visible opacity-100 translate-y" : "-translate-y-4 opacity-0 invisible"} bg-white desktop-heading2 w-56 sm:w-1/5 absolute left-0 rounded-b-xl rounded-tl-lg border-main-500 border-x-2 border-b-2 top-full cursor-default text-black transition-all dark:bg-dark-8 dark:text-white`}
+      className={`${isActive ? "visible opacity-100 translate-y" : "-translate-y-4 opacity-0 invisible"} bg-white   desktop-heading3  sm:desktop-heading2 w-56 sm:w-1/5 absolute left-0 rounded-b-xl rounded-tl-lg border-main-500 border-x-2 border-b-2 top-full cursor-default text-black transition-all dark:bg-dark-8 dark:text-white`}
     >
       <ul>
         <Link href={"/user/profile"} className="group">

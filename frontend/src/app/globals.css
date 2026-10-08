@@ -101,7 +101,7 @@
   }
 
   .nav-bar_btn {
-    @apply text-main-500 text-2xl sm:text-3xl xl:text-4xl cursor-pointer hover:text-main-700 transition-colors;
+    @apply text-main-500 text-2xl text-4xl cursor-pointer hover:text-main-700 transition-colors;
   }
 
   .nav-menu_item {
@@ -190,7 +190,7 @@
   }
 
   .user-dropdown_item {
-    @apply flex gap-2 items-center py-4 px-6 group-hover:bg-black/4 group-hover:text-main-500 transition-colors;
+    @apply flex gap-2 items-center py-3 px-5 sm:py-4 sm:px-6 group-hover:bg-black/4 group-hover:text-main-500 transition-colors;
   }
 
   .user-dropdown_icon {
@@ -198,7 +198,7 @@
   }
 
   .otp-code_inp {
-    @apply bg-main-50 flex-1 w-full p-2 outline-none rounded-lg text-center text-main-500 dark:bg-dark-7 font-bold border text-3xl;
+    @apply bg-main-50 flex-1 w-full p-2 outline-none rounded-lg text-center text-main-500 dark:bg-dark-7 font-bold border text-2xl sm:text-3xl;
   }
 
   .shop-info_icon {
