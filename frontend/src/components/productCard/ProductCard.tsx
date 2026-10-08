@@ -18,12 +18,12 @@ const ProductCard = ({
 
   return (
     <Link href={"#"} className="group" draggable={false}>
-      <section className="w-60 h-75.5 group-hover:scale-102 transition-transform pb-1 bg-[#f9f9f9] dark:bg-dark-7 dark:text-white text-black rounded-2xl overflow-hidden flex flex-col justify-between">
+      <section className="w-52 sm:w-60 h-75.5 group-hover:scale-102 transition-transform pb-1 bg-[#f9f9f9] dark:bg-dark-7 dark:text-white text-black rounded-2xl overflow-hidden flex flex-col justify-between">
         <section className="">
           <Image
             src={image.src}
             alt={image.alt}
-            className="px-2 w-60 h-32.5 object-contain"
+            className="px-2 w-full h-32.5 object-contain"
             width={240}
             height={130}
             draggable={false}

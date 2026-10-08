@@ -12,8 +12,8 @@ const BestOffers = () => {
   return (
     <section className="bg-main-600 text-white rounded-2xl">
       <Rail cardSpace={256}>
-        <section className="min-w-1/5 text-center flex flex-col gap-4 justify-center">
-          <h2 className="text-3xl font-bold px-4 ">
+        <section className="min-w-60 sm:min-w-1/5 text-center flex flex-col gap-4 justify-center">
+          <h2 className="text-2xl sm:text-3xl font-bold px-4 ">
             کالاهایی با بیشترین تخفیف
           </h2>
           <p>
@@ -38,7 +38,7 @@ const BestOffers = () => {
           ))}
           <Link
             href={"/best-offers-products"}
-            className="text-xl group flex justify-center items-center gap-2 w-60 bg-[#f9f9f9] text-black  dark:bg-dark-7 dark:text-white rounded-2xl transition-colors hover:text-main-500"
+            className="text-xl group flex justify-center items-center gap-2 w-52 sm:w-60 bg-[#f9f9f9] text-black  dark:bg-dark-7 dark:text-white rounded-2xl transition-colors hover:text-main-500"
           >
             <span>مشاهده همه </span>
             <section className="flex items-center">

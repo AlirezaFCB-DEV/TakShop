@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineCamera } from "react-icons/ai";
 import { BsSmartwatch } from "react-icons/bs";
-import { CiHeadphones, CiHeart, CiMobile3 } from "react-icons/ci";
+import { CiHeadphones, CiMobile3 } from "react-icons/ci";
 import { IoIosGitNetwork } from "react-icons/io";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { LiaLaptopSolid } from "react-icons/lia";
@@ -18,7 +18,7 @@ const Categories : CategoriesItems = [
     {
       id: 1,
       title: "موبایل",
-      icon: <CiMobile3 />,
+      icon: <CiMobile3 className="category-title_icon lg:text-xl" />,
     },
     {
       id: 2 ,

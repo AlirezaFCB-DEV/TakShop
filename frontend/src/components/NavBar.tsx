@@ -21,7 +21,6 @@ const NavBar = () => {
   const { theme, setTheme } = useTheme();
   const [isActiveCategoryMenu, setIsActiveCategoryMenu] = useState(false);
   const [isActiveUserDropDown, setIsActiveUserDropDown] = useState(false);
-
   const [isLogin, setIsLogin] = useState(false);
 
   const { isModalOpen, openModal, closeModal } = useModal();
@@ -36,15 +35,15 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 text-black bg-white dark:bg-dark-8 dark:text-white flex justify-around border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-30">
+      <nav className="sticky top-0 text-black bg-white dark:bg-dark-8 dark:text-white flex items-center justify-between gap-1 px-2 py-2 sm:px-6 sm:gap-4 xl:px-10 xl:py-0 border-b-2 border-b-main-500 rounded-b-lg shadow-md w-full z-30">
         <section className="flex items-center">
           <Link href={"/"} className="flex gap-4 text-main-500">
             <h1>
-              <TakShopLogo />
+              <TakShopLogo sizeClass="text-2xl sm:text-3xl xl:desktop-main-title" />
             </h1>
           </Link>
         </section>
-        <section>
+        <section className="hidden sm:block">
           <ul className="flex gap-10 text-lg h-full z-10">
             <li className="nav-menu_item">
               <Link href={"/"} className="nav-menu_link">
@@ -55,6 +54,7 @@ const NavBar = () => {
               className="nav-menu_item gap-1 cursor-pointer group "
               onMouseEnter={() => setIsActiveCategoryMenu(true)}
               onMouseLeave={() => setIsActiveCategoryMenu(false)}
+              onClick={() => setIsActiveCategoryMenu((prevState) => !prevState)}
             >
               <span>دسته بندی کالاها</span>
               <IoIosArrowUp className="group-hover:-rotate-180 transition-transform" />
@@ -82,42 +82,54 @@ const NavBar = () => {
             </li>
           </ul>
         </section>
-        <section className="flex gap-4">
-          <button className="icon-button">
+        <section className="flex items-center gap-1 sm:gap-4">
+          <button type="button" aria-label="جستجو" className="nav-bar_btn ">
             <CiSearch />
           </button>
-          <PrimaryButton
-            onClick={() => toggleTheme()}
-            className="rounded-full"
-            variant="icon"
-          >
-            {theme === "dark" ? <MdSunny /> : <MdDarkMode />}
-          </PrimaryButton>
+          <section className="flex items-center justify-center">
+            <button
+              className="nav-bar_btn"
+              onClick={toggleTheme}
+              aria-label={
+                theme === "dark" ? "تغییر به پوسته روشن" : "تغییر به پوسته تیره"
+              }
+            >
+              {theme === "dark" ? <MdSunny /> : <MdDarkMode />}
+            </button>
+          </section>
           {isLogin ? (
-            <>
-              <button
-                type="button"
-                className="icon-button"
-                onMouseEnter={() => setIsActiveUserDropDown(true)}
-                onMouseLeave={() => setIsActiveUserDropDown(false)}
-              >
-                <Link
-                  href={"#"}
-                  className="flex flex-row-reverse items-center "
-                >
-                  <AiOutlineUser />
-                  <IoIosArrowUp
-                    className={`text-[1.2rem] ${isActiveUserDropDown && "rotate-180"} transition-transform`}
-                  />
-                </Link>
+            <button
+              type="button"
+              className="nav-bar_btn flex flex-row-reverse items-center "
+              onMouseEnter={() => setIsActiveUserDropDown(true)}
+              onMouseLeave={() => setIsActiveUserDropDown(false)}
+              onClick={() => setIsActiveUserDropDown((prevState) => !prevState)}
+            >
+              <AiOutlineUser />
+              <IoIosArrowUp
+                className={`text-[1.2rem] ${isActiveUserDropDown && "rotate-180"} transition-transform`}
+              />
 
-                <UserMenu isActive={isActiveUserDropDown} />
-              </button>
-            </>
+              <UserMenu isActive={isActiveUserDropDown} />
+            </button>
           ) : (
-            <PrimaryButton onClick={openModal}>ثبت نام / ورود</PrimaryButton>
+            <>
+              <section className="">
+                <PrimaryButton
+                  onClick={openModal}
+                  variant="custom"
+                  className="rounded-lg px-3 py-1.5 button-sm whitespace-nowrap xl:px-4 xl:py-2 xl:button-lg"
+                >
+                  ثبت نام / ورود
+                </PrimaryButton>
+              </section>
+            </>
           )}
-          <Link href={"/cart"} className="icon-button">
+          <Link
+            href={"/cart"}
+            aria-label="سبد خرید"
+            className="nav-bar_btn hidden lg:block"
+          >
             <BsCart3 />
           </Link>
         </section>

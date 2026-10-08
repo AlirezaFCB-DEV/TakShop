@@ -38,10 +38,10 @@ const CategoryMenu = ({ isActive }: CategoryMenuProps) => {
 
   return (
     <section
-      className={`absolute translate-x-1/2 right-1/2 bg-white dark:bg-dark-8 dark:text-white w-4/5 top-full transition-all ${isActive ? "visible opacity-100 translate-y" : " invisible -translate-y-4 opacity-0"} rounded-b-md pl-4 flex h-min text-black cursor-default overflow-hidden border-x-2 border-b-2 border-main-500 max-h-117.5`}
+      className={`absolute translate-x-1/2 right-1/2 bg-white dark:bg-dark-8 dark:text-white w-4/5 top-full transition-all ${isActive ? "visible opacity-100 translate-y" : " invisible -translate-y-4 opacity-0"} rounded-b-md pl-4 flex text-black cursor-default overflow-hidden border-x-2 border-b-2 border-main-500 h-117.5`}
     >
-      <section className="border-l-3 border-transparent [border-image:linear-gradient(to_bottom,transparent,#831fc1,transparent)_1] flex-1">
-        <ul className="text-black flex flex-col h-full">
+      <section className="border-l-3 border-transparent [border-image:linear-gradient(to_bottom,transparent,#831fc1,transparent)_1] flex-1 min-w-40">
+        <ul className="text-black flex flex-col h-full justify-center">
           {Categories.map((category) => (
             <li
               className="category-dropdown_item"
@@ -49,12 +49,12 @@ const CategoryMenu = ({ isActive }: CategoryMenuProps) => {
               onMouseEnter={() => setMainCategory(category.title)}
             >
               {category.icon}
-              <span>{category.title}</span>
+              <span className="min-w-0 leading-tight">{category.title}</span>
             </li>
           ))}
         </ul>
       </section>
-      <section className="flex-4 flex flex-col px-10  py-4 gap-6 overflow-y-scroll scrollbar-thumb-main-500">
+      <section className="flex-4 flex flex-col px-4 md:px-10 py-4 gap-6 overflow-y-scroll scrollbar-thumb-main-500 min-w-0">
         <Link
           href={"/products"}
           className="flex items-center text-main-500 hover:text-main-700"
@@ -62,7 +62,7 @@ const CategoryMenu = ({ isActive }: CategoryMenuProps) => {
           <h2 className="desktop-heading2">مشاهده همه محصولات </h2>
           <IoIosArrowUp className="-rotate-90 text-2xl" />
         </Link>
-        <section className="flex justify-between">
+        <section className="flex flex-wrap gap-8 overflow-hidden min-w-0">
           {/* mainCategory Map */}
           {mainCategoryItems?.map((item, index) => (
             <section className="title-categories_container" key={index}>

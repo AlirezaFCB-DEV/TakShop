@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { useModal, ModalProvider } from "@/contexts/LoginModalContext";
+import { ModalProvider } from "@/contexts/LoginModalContext";
 import localFont from "next/font/local";
 import "./globals.css";
 import LayoutContent from "@/components/LayoutContent";

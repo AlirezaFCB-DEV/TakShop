@@ -2,6 +2,19 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/**
+ * Utility to hide scrollbars while keeping scrolling functionality.
+ * Used by the rail carousel, category menu and mobile category sheet.
+ */
+@utility scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
 @theme {
   --color-dark-color: #1f1f1f;
   --color-light-color: #ededed;
@@ -87,6 +100,10 @@
     @apply text-4xl text-button-default hover:text-button-hover selection:bg-button-selected cursor-pointer transition-colors flex items-center;
   }
 
+  .nav-bar_btn {
+    @apply text-main-500 text-2xl sm:text-3xl xl:text-4xl cursor-pointer hover:text-main-700 transition-colors;
+  }
+
   .nav-menu_item {
     @apply flex items-center py-8;
   }
@@ -96,12 +113,66 @@
   }
 
   .category-dropdown_item {
-    @apply flex flex-1 px-4 hover:bg-black/4 gap-2 items-center text-xl hover:text-main-500 cursor-pointer transition-colors dark:text-white dark:hover:bg-white/4;
+    @apply flex h-14 min-h-14 min-w-0 shrink-0 items-center gap-2 px-4 text-lg leading-tight hover:bg-black/4 hover:text-main-500 cursor-pointer transition-colors dark:text-white dark:hover:bg-white/4 lg:text-xl;
   }
 
   .category-title_icon {
-    @apply text-2xl;
+    @apply shrink-0 text-2xl;
   }
+
+  .faq-question_title {
+    @apply min-w-0 flex-1 font-semibold leading-snug;
+    font-family: var(--yekan-bakh);
+    font-size: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .faq-question_title {
+      font-size: 1.25rem;
+    }
+  }
+
+  .category-sheet_item {
+    @apply flex h-16 w-full min-w-0 items-center gap-2 rounded-xl bg-[#f5f5f5] px-3 text-sm transition-colors hover:text-main-500 cursor-pointer sm:text-base;
+  }
+
+  .dark .category-sheet_item {
+    @apply bg-dark-7;
+  }
+
+  .category-card_grid {
+    @apply grid w-full grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7;
+  }
+
+  .category-card {
+    @apply flex h-44 w-full min-w-0 sm:h-48 lg:h-52 2xl:h-57;
+  }
+
+  .category-card_surface {
+    @apply flex h-full w-full min-w-0 flex-col items-center justify-center gap-2 overflow-hidden rounded-xl bg-[#f9f9f9] p-2 text-center transition-transform dark:bg-dark-8;
+  }
+
+  .category-card:hover .category-card_surface {
+    box-shadow: 0 0 8px 1px rgb(0 0 0 / 30%);
+    transform: scale(1.05);
+  }
+
+  .dark .category-card:hover .category-card_surface {
+    box-shadow: 0 0 8px 1px rgb(255 255 255 / 30%);
+  }
+
+  .category-card_image {
+    @apply h-28 w-full shrink-0 object-contain sm:h-32 2xl:h-36;
+  }
+
+  .category-card_title {
+    @apply flex min-h-10 w-full items-center justify-center text-sm font-bold leading-tight dark:text-white sm:min-h-12 sm:text-base 2xl:text-lg;
+  }
+
+  .category-card:hover .category-card_title {
+    @apply text-main-500;
+  }
+
   .title-categories_container {
     @apply flex flex-col gap-4;
   }
@@ -138,8 +209,34 @@
     @apply text-5xl text-main-500 hover:text-main-700 transition-colors;
   }
 
-  .slider-btn {
-    @apply p-3 absolute text-main-500 text-4xl bottom-1/2 translate-y-1/2 rounded-md cursor-pointer;
+  .hero-section_btn {
+    @apply p-3 absolute text-main-500 text-3xl sm:text-4xl bottom-1/2 translate-y-1/2 rounded-md cursor-pointer;
+  }
+
+  .hero-frame {
+    @apply relative aspect-1244/350 w-full overflow-hidden rounded-3xl;
+  }
+
+  @media (max-width: 767px) {
+    .hero-frame {
+      aspect-ratio: 13 / 7;
+    }
+  }
+
+  .hero-track {
+    @apply relative flex h-full w-full;
+  }
+
+  .hero-slide {
+    @apply relative block h-full w-full flex-none;
+  }
+
+  .hero-image {
+    @apply absolute inset-0 h-full w-full object-cover object-center;
+  }
+
+  .hero-dot {
+    @apply h-3 rounded-full bg-main-400 transition-all duration-500 cursor-pointer;
   }
 
   .bestOffers-timer_counter {

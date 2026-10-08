@@ -40,7 +40,7 @@ const AuthModal = ({
       className={`fixed w-full h-dvh top-0 flex items-center justify-center z-30 transition-all ${isActive ? "visible opacity-100" : "invisible opacity-0"}`}
     >
       <form
-        className="bg-white dark:bg-dark-8 dark:text-white border-2 border-main-500 rounded-2xl w-1/3 flex flex-col gap-4 py-8 px-12"
+        className="bg-white dark:bg-dark-8 dark:text-white border-2 border-main-500 rounded-2xl w-[92%] max-w-lg sm:w-1/3 flex flex-col gap-4 py-6 sm:py-8 px-4 sm:px-12"
         onClick={(e) => e.stopPropagation()}
         onSubmit={(e) => {
           e.preventDefault();
@@ -72,7 +72,7 @@ const AuthModal = ({
           type={`${!isSendOTP ? "button" : "submit"}`}
           disabled={!isAcceptRules}
           className="disabled:bg-main-300"
-          onClick={(e) => {
+          onClick={() => {
             if (isSendOTP) {
               setIsValidateOTP(true);
             } else {

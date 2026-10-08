@@ -1,8 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import Rail from "../rail/rail";
 import { FaChevronLeft } from "react-icons/fa";
+import SectionHeader from "../SectionHeader";
 
 interface ContentSectionProps {
   children: React.ReactNode;
@@ -21,13 +20,7 @@ const ContentSection = ({
 }: ContentSectionProps) => {
   return (
     <section className="flex flex-col gap-4">
-      <section className="text-center">
-        <section className="relative p-3">
-          <h2 className="text-4xl font-bold text-main-500">{title}</h2>
-          <section className="absolute h-2 w-1/12 bg-main-500 -top-1 left-1/2 -translate-x-1/2 rounded-full"></section>
-        </section>
-        <p className="text-gray-300 text-xl">{description}</p>
-      </section>
+      <SectionHeader title={title} description={description} />
       {carousel && viewAllLinkHref ? (
         <>
           <Rail cardSpace={270}>{children}</Rail>
@@ -45,7 +38,9 @@ const ContentSection = ({
           </section>
         </>
       ) : (
-        <section className="w-full flex justify-between">{children}</section>
+        <section className="w-full flex flex-wrap items-center justify-center gap-4 md:gap-0 md:justify-between">
+          {children}
+        </section>
       )}
     </section>
   );

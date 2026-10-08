@@ -32,6 +32,8 @@ const BestOffersTimer = () => {
         return { hour, minute, second };
       });
     }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
   return (

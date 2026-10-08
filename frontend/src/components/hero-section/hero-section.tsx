@@ -6,7 +6,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 import { HeroSectionProps } from "@/types/herosection-props";
 
-const HeroSection = ({slides , loopSlides} : HeroSectionProps) => {
+const HeroSection = ({ slides, loopSlides }: HeroSectionProps) => {
   const [position, setPosition] = useState(1);
   const [transition, setTransition] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -70,22 +70,19 @@ const HeroSection = ({slides , loopSlides} : HeroSectionProps) => {
   };
 
   return (
-    <section className="w-full h-87.5 relative overflow-hidden rounded-3xl">
+    <section className="hero-frame">
       <section
-        className={`relative h-full w-full flex ${transition ? "transition-transform duration-500" : ""}`}
+        className={`hero-track ${transition ? "transition-transform duration-500" : ""}`}
         style={{ transform: `translateX(${position * 100}%)` }}
         onTransitionEnd={handleTransitionEnd}
       >
         {loopSlides.map((item, index) => (
-          <Link
-            href={item.href}
-            className="relative w-full h-full flex-none"
-            key={index}
-          >
+          <Link href={item.href} className="hero-slide" key={index}>
             <Image
               fill
               draggable="false"
-              className="w-full h-full object-cover"
+              sizes="85vw"
+              className="hero-image"
               src={item.imageUrl}
               alt={item.alt}
             />
@@ -94,10 +91,10 @@ const HeroSection = ({slides , loopSlides} : HeroSectionProps) => {
       </section>
 
       <section className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-4">
-        {slides.map((ـ, index) => (
+        {slides.map((_, index) => (
           <button
             aria-label={`go to slide ${index + 1}`}
-            className={`h-3 rounded-full bg-main-400 ${activeSlide === index ? "w-6" : "w-3"} transition-all duration-500 cursor-pointer`}
+            className={`hero-dot ${activeSlide === index ? "w-6" : "w-3"}`}
             onClick={() => {
               if (isAnimating) return;
               setIsAnimating(true);
@@ -108,10 +105,10 @@ const HeroSection = ({slides , loopSlides} : HeroSectionProps) => {
         ))}
       </section>
 
-      <button className="slider-btn right-5" onClick={handlePrev}>
+      <button className="hero-section_btn right-0 sm:right-5" onClick={handlePrev}>
         <FaChevronRight />
       </button>
-      <button className="slider-btn left-5" onClick={handleNext}>
+      <button className="hero-section_btn left-0 sm:left-5" onClick={handleNext}>
         <FaChevronLeft />
       </button>
     </section>

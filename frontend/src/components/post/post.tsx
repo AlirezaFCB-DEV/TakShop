@@ -10,7 +10,7 @@ import { MdOutlineDateRange } from "react-icons/md";
 const Post = ({ url, image, category, date, title }: PostProps) => {
   return (
     <Link href={url} className="group" draggable={false}>
-      <section className=" w-65 h-80 pb-1  bg-[#f9f9f9] dark:bg-dark-7 dark:text-white text-black rounded-2xl overflow-hidden flex flex-col justify-between  group-hover:shadow-[0_0_8px_1px_rgba(0,0,0,0.3)] dark:group-hover:shadow-[0_0_8px_1px_rgba(255,255,255,0.3)] transition-shadow">
+      <section className=" w-56 sm:w-65 h-80 pb-1  bg-[#f9f9f9] dark:bg-dark-7 dark:text-white text-black rounded-2xl overflow-hidden flex flex-col justify-between  group-hover:shadow-[0_0_8px_1px_rgba(0,0,0,0.3)] dark:group-hover:shadow-[0_0_8px_1px_rgba(255,255,255,0.3)] transition-shadow">
         <section className="w-full h-35 relative">
           <Image
             src={image.src}
