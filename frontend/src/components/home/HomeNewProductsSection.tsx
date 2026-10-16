@@ -1,11 +1,16 @@
+import fetchData from "@/utils/fetchData";
 import ContentSection from "../contentSection/ContentSection";
-import { newProducts } from "@/data/new-products-data";
 import ProductCard from "../productCard/ProductCard";
+import { ProductCardProps } from "@/types/ProductCardProps";
 
 /**
  * section (newly added products carousel).
  */
-const HomeNewProductsSection = () => {
+const HomeNewProductsSection = async () => {
+  const newProducts = (await fetchData(
+    "/data/json/new-products.json",
+  )) as ProductCardProps[];
+
   return (
     <ContentSection
       title="محصولات تازه"

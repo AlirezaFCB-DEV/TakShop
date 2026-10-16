@@ -1,13 +1,16 @@
-"use client";
-
 import Link from "next/link";
 import BestOffersTimer from "./bestOffersTimer/BestOffersTimer";
 import { FaChevronLeft } from "react-icons/fa";
 import ProductCard from "../productCard/ProductCard";
-import { BestOffersProducts } from "../../data/best-offers/best-offers-products-data";
+// import { BestOffersProducts } from "../../data/best-offers/best-offers-products-data";
 import Rail from "../rail/rail";
+import { ProductCardProps } from "@/types/ProductCardProps";
+import fetchData from "@/utils/fetchData";
 
-const BestOffers = () => {
+const BestOffers = async () => {
+  const BestOffersProducts = (await fetchData(
+    "/data/json/best-offers.json",
+  )) as ProductCardProps[];
 
   return (
     <section className="bg-main-600 text-white rounded-2xl">

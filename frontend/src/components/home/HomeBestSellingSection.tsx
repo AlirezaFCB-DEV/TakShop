@@ -1,11 +1,17 @@
+import fetchData from "@/utils/fetchData";
 import ContentSection from "../contentSection/ContentSection";
-import { BestSellingProducts } from "@/data/best-offers/best-selling-products-data";
+// import { BestSellingProducts } from "@/data/best-offers/best-selling-products-data";
 import ProductCard from "../productCard/ProductCard";
+import { ProductCardProps } from "@/types/ProductCardProps";
 
 /**
  *  section (best-selling products carousel).
  */
-const HomeBestSellingSection = () => {
+const HomeBestSellingSection = async () => {
+  const BestSellingProducts = (await fetchData(
+    "/data/json/best-selling.json",
+  )) as ProductCardProps[];
+
   return (
     <ContentSection
       title="محصولات پرفروش"

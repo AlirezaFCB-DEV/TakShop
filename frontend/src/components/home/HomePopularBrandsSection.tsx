@@ -1,11 +1,15 @@
 import ContentSection from "../contentSection/ContentSection";
-import { brands } from "@/data/brands-data";
 import PopularBrand from "../brand/brand";
+import fetchData from "@/utils/fetchData";
+import { Brand } from "@/types/brand-props";
 
 /**
  *  section (popular brands carousel).
  */
-const HomePopularBrandsSection = () => {
+const HomePopularBrandsSection = async () => {
+
+  const brands = await fetchData("/data/json/brands.json") as Brand[];
+
   return (
     <ContentSection
       title="برند های محبوب"

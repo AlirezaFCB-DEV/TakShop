@@ -1,11 +1,14 @@
+import fetchData from "@/utils/fetchData";
 import ContentSection from "../contentSection/ContentSection";
-import { posts } from "@/data/posts-data";
 import Post from "../post/post";
+import { PostProps } from "@/types/post-props";
 
 /**
  * section (blog posts carousel).
  */
-const HomeBlogSection = () => {
+const HomeBlogSection = async () => {
+  const posts = (await fetchData("/data/json/posts.json")) as PostProps[];
+
   return (
     <ContentSection
       title="بلاگ پست"
