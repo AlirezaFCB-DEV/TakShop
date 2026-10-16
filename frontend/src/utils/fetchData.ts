@@ -11,7 +11,10 @@ const fetchData = async (route : string , option ?: RequestInit) => {
   );
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch , status : ${response.status}`);
+    // throw new Error(`Failed to fetch , status : ${response.status}`);
+    throw new Error(
+    `GET ${url.href} failed: ${response.status} ${response.statusText}`,
+  );
   }
 
   const data = await response.json();
