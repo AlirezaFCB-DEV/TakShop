@@ -1,6 +1,6 @@
 import ContentSection from "../contentSection/ContentSection";
 import PopularBrand from "../brand/brand";
-import fetchData from "@/utils/fetchData";
+// import fetchData from "@/utils/fetchData";
 import { Brand } from "@/types/brand-props";
 
 /**
@@ -8,7 +8,7 @@ import { Brand } from "@/types/brand-props";
  */
 const HomePopularBrandsSection = async () => {
 
-  const brands = await fetchData("/data/json/brands.json") as Brand[];
+  // const brands = await fetchData("/data/json/brands.json") as Brand[];
 
   return (
     <ContentSection
@@ -17,13 +17,15 @@ const HomePopularBrandsSection = async () => {
       carousel
       viewAllLinkHref="/popular-brands"
     >
-      {brands.map((brand) => (
+      {/* {brands.map((brand) => (
         <PopularBrand
           src={brand.image}
           alt={brand.name}
           key={brand.name}
         />
-      ))}
+      ))} */}
+
+      <div></div>
     </ContentSection>
   );
 };
