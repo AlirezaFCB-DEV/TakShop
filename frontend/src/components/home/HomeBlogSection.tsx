@@ -1,13 +1,13 @@
-import fetchData from "@/utils/fetchData";
+// import fetchData from "@/utils/fetchData";
 import ContentSection from "../contentSection/ContentSection";
-import Post from "../post/post";
-import { PostProps } from "@/types/post-props";
+// import Post from "../post/post";
+// import { PostProps } from "@/types/post-props";
 
 /**
  * section (blog posts carousel).
  */
 const HomeBlogSection = async () => {
-  const posts = (await fetchData("/data/json/posts.json")) as PostProps[];
+  // const posts = (await fetchData("/data/json/posts.json")) as PostProps[];
 
   return (
     <ContentSection
@@ -16,9 +16,10 @@ const HomeBlogSection = async () => {
       carousel
       viewAllLinkHref="/posts"
     >
-      {posts.map((post) => (
+      {/* {posts.map((post) => (
         <Post {...post} key={post.title} />
-      ))}
+      ))} */}
+      <div></div>
     </ContentSection>
   );
 };
