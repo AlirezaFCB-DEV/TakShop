@@ -4,13 +4,13 @@ import { FaChevronLeft } from "react-icons/fa";
 import ProductCard from "../productCard/ProductCard";
 // import { BestOffersProducts } from "../../data/best-offers/best-offers-products-data";
 import Rail from "../rail/rail";
-// import { ProductCardProps } from "@/types/ProductCardProps";
-// import fetchData from "@/utils/fetchData";
+import { ProductCardProps } from "@/types/ProductCardProps";
+import fetchData from "@/utils/fetchData";
 
 const BestOffers = async () => {
-  // const BestOffersProducts = (await fetchData(
-  //   "/data/json/best-offers.json",
-  // )) as ProductCardProps[];
+  const BestOffersProducts = (await fetchData(
+    "/data/json/best-offers.json",
+  )) as ProductCardProps[];
 
   return (
     <section className="bg-main-600 text-white rounded-2xl">
@@ -36,9 +36,9 @@ const BestOffers = async () => {
           </Link>
         </section>
         <section className="flex gap-4 ">
-          {/* {BestOffersProducts.map((product, index) => (
+          {BestOffersProducts.map((product, index) => (
             <ProductCard {...product} key={index} />
-          ))} */}
+          ))}
           <Link
             href={"/best-offers-products"}
             className="text-xl group flex justify-center items-center gap-2 w-52 sm:w-60 bg-[#f9f9f9] text-black  dark:bg-dark-7 dark:text-white rounded-2xl transition-colors hover:text-main-500"
