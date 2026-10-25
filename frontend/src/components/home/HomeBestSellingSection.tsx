@@ -1,16 +1,16 @@
-// import fetchData from "@/utils/fetchData";
+import fetchData from "@/utils/fetchData";
 import ContentSection from "../contentSection/ContentSection";
 // import { BestSellingProducts } from "@/data/best-offers/best-selling-products-data";
-// import ProductCard from "../productCard/ProductCard";
-// import { ProductCardProps } from "@/types/ProductCardProps";
+import ProductCard from "../productCard/ProductCard";
+import { ProductCardProps } from "@/types/ProductCardProps";
 
 /**
  *  section (best-selling products carousel).
  */
 const HomeBestSellingSection = async () => {
-  // const BestSellingProducts = (await fetchData(
-  //   "/data/json/best-selling.json",
-  // )) as ProductCardProps[];
+  const BestSellingProducts = (await fetchData(
+    "/data/json/best-selling.json",
+  )) as ProductCardProps[];
 
   return (
     <ContentSection
@@ -19,10 +19,9 @@ const HomeBestSellingSection = async () => {
       carousel
       viewAllLinkHref="/best-selling-products"
     >
-      {/* {BestSellingProducts.map((product, index) => (
+      {BestSellingProducts.map((product, index) => (
         <ProductCard {...product} key={index} />
-      ))} */}
-      <div></div>
+      ))}
     </ContentSection>
   );
 };
