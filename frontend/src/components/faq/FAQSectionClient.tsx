@@ -1,8 +1,7 @@
 "use client";
 
-import { FAQItems } from "@/data/FAQ/FAQ-items-data";
 import { FAQItemProps } from "@/types/FAQ/faq-props";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FAQCategorySection from "./faq-category";
 import FAQ from "./faq";
 import {
